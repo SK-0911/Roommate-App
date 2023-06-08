@@ -3,6 +3,7 @@ import 'package:sb/sample.dart';
 import 'package:sb/signUp.dart';
 import 'package:sb/main.dart';
 import 'package:sb/utils/landscape_main.dart';
+
 // import 'package:google_fonts/google_fonts.dart';
 
 import 'homePage.dart';
@@ -143,23 +144,23 @@ class Login extends StatelessWidget {
                 const SizedBox(height: 30),
 
                 //google + fb sign in
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.center,
-                //   children: const [
-                //     //Google logo
-                //     squareTile(imgPath: 'assets/icons/google.png'),
-                //
-                //     SizedBox(width: 15),
-                //
-                //     // FB logo
-                //     squareTile(imgPath: 'assets/icons/facebook.png'),
-                //
-                //     SizedBox(width: 15),
-                //
-                //     // Apple logo
-                //     squareTile(imgPath: 'assets/icons/apple.png')
-                //   ],
-                // ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    //Google logo
+                    squareTile(imgPath: 'assets/icons/google.png'),
+
+                    SizedBox(width: 15),
+
+                    // FB logo
+                    squareTile(imgPath: 'assets/icons/facebook.png'),
+
+                    SizedBox(width: 15),
+
+                    // Apple logo
+                    squareTile(imgPath: 'assets/icons/apple.png')
+                  ],
+                ),
 
                 const SizedBox(height: 30),
 
