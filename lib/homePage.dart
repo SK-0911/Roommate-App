@@ -37,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
         body: LandscapeView(
           middleRatio: 2,
           middleWidget: ListView(
-            scrollDirection: Axis.vertical,
+            // scrollDirection: Axis.vertical,
             children: [
               Container(
                 padding:
@@ -87,39 +87,37 @@ class _MyHomePageState extends State<MyHomePage> {
                       ],
                     ),
                     const SizedBox(height: 10),
-                     Padding(
+                    Padding(
                       padding: EdgeInsets.only(left: 3, top: 10),
                       child: RichText(
-                        text:
-                        const TextSpan(
-                          style:  TextStyle (
-                            fontSize:  55,
+                        text: const TextSpan(
+                          style: TextStyle(
+                            fontSize: 55,
                             fontWeight: FontWeight.w600,
                             // height:  150,
-                            color:  Color(0xff000000),
+                            color: Color(0xff000000),
                           ),
-                          children:  [
+                          children: [
                             TextSpan(
-                              text:  'Namaste',
-                              style:  TextStyle (
+                              text: 'Namaste',
+                              style: TextStyle(
                                 // 'Poppins',
-                                fontSize:  35,
-                                fontWeight:  FontWeight.w600,
+                                fontSize: 35,
+                                fontWeight: FontWeight.w600,
                                 // height:  150,
-                                color:  Color(0xff000000),
+                                color: Color(0xff000000),
                               ),
                             ),
                             TextSpan(
-                              text:  '\nMayank',
-                              style:  TextStyle (
+                              text: '\nMayank',
+                              style: TextStyle(
                                 // 'Poppins',
-                                fontSize:  35,
-                                fontWeight:  FontWeight.w600,
+                                fontSize: 35,
+                                fontWeight: FontWeight.w600,
                                 // height:  150,
-                                color:  AppColors.lightBlueTheme,
+                                color: AppColors.lightBlueTheme,
                               ),
                             ),
-
                           ],
                         ),
                       ),
@@ -141,24 +139,64 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),
               ),
-
-              // Services Section
-              Column(
+              Row(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Services(0),
-                      Services(1),
-                    ],
+                  Center(
+                    child: Container(
+                      width: Screen.isPortrait(context)
+                          ? MediaQuery.of(context).size.width / 2.1
+                          : MediaQuery.of(context).size.width / 4,
+                      // height: 150, // Half of the screen width
+                      child: Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(
+                              30.0), // Adjust the value for desired curve
+                        ),
+
+                        child: Stack(
+                          children: [
+                            Image.asset("assets/icons/hostelcard.png",
+                              fit: BoxFit.fill,
+                              height: 120,
+                            ),
+                            ListTile(
+                              title: Text("Hostel"),
+                              // subtitle: Text('Card Subtitle'),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      bottomCards(0),
-                      bottomCards(1),
-                      bottomCards(2),
-                    ],
+                  Center(
+                    child: Container(
+
+                      width: Screen.isPortrait(context)
+                          ? MediaQuery.of(context).size.width / 2.1
+                          : MediaQuery.of(context).size.width / 4,
+                      // height: 150, // Half of the screen width
+                      child: Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(
+                              30.0), // Adjust the value for desired curve
+                        ),
+                        child: Container(
+
+                          child: Stack(
+                            children: [
+                              Image.asset("assets/icons/cabcard.png",
+                              fit: BoxFit.fill,
+                              height: 120,
+                              ),
+                              ListTile(
+                                title: Text("cab"),
+                                // subtitle: Text('Card Subtitle'),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -893,7 +931,9 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Stack(
             children: [
               Image.asset(
-                index==0?'assets/cardHostel.png':'assets/cardcab.png',
+                index == 0
+                    ? 'assets/icons/cardHostel.png'
+                    : 'assets/icons/cardcab.png',
                 fit: BoxFit.cover,
                 width: double.infinity,
                 height: double.infinity,
@@ -923,7 +963,11 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Stack(
           children: [
             Image.asset(
-              index==0?'assets/cardflat.png':index==1?'assets/cardpg.png':'assets/cardlaundry.png',
+              index == 0
+                  ? 'assets/icons/cardflat.png'
+                  : index == 1
+                      ? 'assets/icons/cardpg.png'
+                      : 'assets/icons/cardlaundry.png',
               fit: BoxFit.cover,
               width: double.infinity,
               height: double.infinity,

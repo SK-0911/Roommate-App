@@ -81,10 +81,10 @@ class Login extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                       builder: (context){
-                        return smaplepage();
-                        // return MyHomePage(
-                        //   title: 'Service Box',
-                        // );
+                        // return smaplepage();
+                        return MyHomePage(
+                          title: 'Service Box',
+                        );
                       }
                   ),
               ),
@@ -143,23 +143,23 @@ class Login extends StatelessWidget {
                 const SizedBox(height: 30),
 
                 //google + fb sign in
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    //Google logo
-                    squareTile(imgPath: 'assets/icons/google.png'),
-
-                    SizedBox(width: 15),
-
-                    // FB logo
-                    squareTile(imgPath: 'assets/icons/facebook.png'),
-
-                    SizedBox(width: 15),
-
-                    // Apple logo
-                    squareTile(imgPath: 'assets/icons/apple.png')
-                  ],
-                ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.center,
+                //   children: const [
+                //     //Google logo
+                //     squareTile(imgPath: 'assets/icons/google.png'),
+                //
+                //     SizedBox(width: 15),
+                //
+                //     // FB logo
+                //     squareTile(imgPath: 'assets/icons/facebook.png'),
+                //
+                //     SizedBox(width: 15),
+                //
+                //     // Apple logo
+                //     squareTile(imgPath: 'assets/icons/apple.png')
+                //   ],
+                // ),
 
                 const SizedBox(height: 30),
 
