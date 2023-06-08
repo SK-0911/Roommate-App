@@ -164,7 +164,7 @@ class _ListingState extends State<Listing> {
                   ),
                   Container(
                     width: Screen.isPortrait(context)
-                        ? MediaQuery.of(context).size.width / 2.1
+                        ? MediaQuery.of(context).size.width / 2.5
                         : MediaQuery.of(context).size.width / 4,
                     // height: 100,
                     child: Card(

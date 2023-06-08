@@ -893,7 +893,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Stack(
             children: [
               Image.asset(
-                index==0?'assets/cardHostel.png':'assets/cardcab.png',
+                index==0?'assets/icons/cardHostel.png':'assets/icons/cardcab.png',
                 fit: BoxFit.cover,
                 width: double.infinity,
                 height: double.infinity,
@@ -923,7 +923,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Stack(
           children: [
             Image.asset(
-              index==0?'assets/cardflat.png':index==1?'assets/cardpg.png':'assets/cardlaundry.png',
+              index==0?'assets/icons/cardflat.png':index==1?'assets/icons/cardpg.png':'assets/icons/cardlaundry.png',
               fit: BoxFit.cover,
               width: double.infinity,
               height: double.infinity,

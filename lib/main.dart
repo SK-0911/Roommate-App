@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sb/laundry.dart';
 import 'package:sb/splash.dart';
 import 'package:sb/login.dart';
 import 'hostelListing.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:  Splash(),
+      home:  Laundry(),
       debugShowCheckedModeBanner: false,
     );
   }

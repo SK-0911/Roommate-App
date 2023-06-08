@@ -3,6 +3,7 @@ import 'package:sb/sample.dart';
 import 'package:sb/signUp.dart';
 import 'package:sb/main.dart';
 import 'package:sb/utils/landscape_main.dart';
+
 // import 'package:google_fonts/google_fonts.dart';
 
 import 'homePage.dart';
@@ -81,10 +82,10 @@ class Login extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                       builder: (context){
-                        return smaplepage();
-                        // return MyHomePage(
-                        //   title: 'Service Box',
-                        // );
+                        // return ();
+                        return const MyHomePage(
+                          title: 'Service Box',
+                        );
                       }
                   ),
               ),
