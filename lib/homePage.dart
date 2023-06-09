@@ -1,6 +1,8 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:sb/const/imagename.dart';
+import 'package:sb/laundry.dart';
 import 'package:sb/utils/landscape_main.dart';
 import 'hostelListing.dart';
 import 'const/CustomColors.dart';
@@ -148,39 +150,165 @@ class _MyHomePageState extends State<MyHomePage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Services(0),
-                      Services(1),
-                    ],
-                  ),
-                  Center(
-                    child: Container(
-
-                      width: Screen.isPortrait(context)
-                          ? MediaQuery.of(context).size.width / 2.1
-                          : MediaQuery.of(context).size.width / 4,
-                      // height: 150, // Half of the screen width
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(
-                              30.0), // Adjust the value for desired curve
-                        ),
+                      Center(
                         child: Container(
 
-                          child: Stack(
-                            children: [
-                              Image.asset("assets/icons/cabcard.png",
-                              fit: BoxFit.fill,
-                              height: 120,
+                          width: Screen.isPortrait(context)
+                              ? MediaQuery.of(context).size.width / 2.1
+                              : MediaQuery.of(context).size.width / 4,
+                          // height: 150, // Half of the screen width
+                          child: Card(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                  30.0), // Adjust the value for desired curve
+                            ),
+                            child: Container(
+
+                              child: Stack(
+                                children: [
+                                  Image.asset(hostelcard,
+                                    fit: BoxFit.fill,
+                                    height: 120,
+                                  ),
+                                  ListTile(
+                                    title: Text("Hostel",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+                                    // subtitle: Text('Card Subtitle'),
+                                  ),
+                                ],
                               ),
-                              ListTile(
-                                title: Text("cab"),
-                                // subtitle: Text('Card Subtitle'),
-                              ),
-                            ],
+                            ),
                           ),
                         ),
                       ),
-                    ),
+                      Center(
+                        child: Container(
+
+                          width: Screen.isPortrait(context)
+                              ? MediaQuery.of(context).size.width / 2.1
+                              : MediaQuery.of(context).size.width / 4,
+                          // height: 150, // Half of the screen width
+                          child: Card(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                  30.0), // Adjust the value for desired curve
+                            ),
+                            child: Container(
+
+                              child: Stack(
+                                children: [
+                                  Image.asset(cabcard,
+                                  fit: BoxFit.fill,
+                                  height: 120,
+                                  ),
+                                  ListTile(
+                                    title: Text("cab",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                                    // subtitle: Text('Card Subtitle'),
+                                  ),),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Center(
+                        child: Container(
+
+                          width: Screen.isPortrait(context)
+                              ? MediaQuery.of(context).size.width / 3.2
+                              : MediaQuery.of(context).size.width / 4,
+                          // height: 150, // Half of the screen width
+                          child: Card(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                  40.0), // Adjust the value for desired curve
+                            ),
+                            child: Container(
+
+                              child: Stack(
+                                children: [
+                                  Image.asset(Flatcard,
+                                    fit: BoxFit.fill,
+                                    height: 100,
+                                  ),
+                                  ListTile(
+                                    title: Text("Flat",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+                                    // subtitle: Text('Card Subtitle'),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Center(
+                        child: Container(
+
+                          width: Screen.isPortrait(context)
+                              ? MediaQuery.of(context).size.width / 3.2
+                              : MediaQuery.of(context).size.width / 4,
+                          // height: 150, // Half of the screen width
+                          child: Card(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                  40.0), // Adjust the value for desired curve
+                            ),
+                            child: Container(
+
+                              child: Stack(
+                                children: [
+                                  Image.asset(Pgcard,
+                                    fit: BoxFit.fill,
+                                    height: 100,
+                                  ),
+                                  ListTile(
+                                    title: Text("PG",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                                      // subtitle: Text('Card Subtitle'),
+                                    ),),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Center(
+                        child: InkWell(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (_)=>const Laundry()));
+                          },
+                          child: Container(
+                            width: Screen.isPortrait(context)
+                                ? MediaQuery.of(context).size.width / 3.2
+                                : MediaQuery.of(context).size.width / 4,
+                            // height: 150, // Half of the screen width
+                            child: Card(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(
+                                    40.0), // Adjust the value for desired curve
+                              ),
+                              child: Container(
+                                child: Stack(
+                                  children: [
+                                    Image.asset(Laundrycard,
+                                      fit: BoxFit.fill,
+                                      height: 100,
+                                    ),
+                                    ListTile(
+                                      title: Text("Laundry",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                                        // subtitle: Text('Card Subtitle'),
+                                      ),),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -900,69 +1028,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ));
   }
 
-  Services(int index) {
-    return Center(
-      child: Container(
-        width: Screen.isPortrait(context)
-            ? MediaQuery.of(context).size.width / 2.1
-            : MediaQuery.of(context).size.width / 4,
-        // height: 150, // Half of the screen width
-        child: Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(
-                30.0), // Adjust the value for desired curve
-          ),
-          child: Stack(
-            children: [
-              Image.asset(
-                index==0?'assets/cardHostel.png':'assets/cardcab.png',
-                fit: BoxFit.cover,
-                width: double.infinity,
-                height: double.infinity,
-              ),
-              ListTile(
-                title: Text(index == 0 ? "Hostel" : "Cab"),
-                // subtitle: Text('Card Subtitle'),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
 
-  bottomCards(int index) {
-    return Container(
-      width: Screen.isPortrait(context)
-          ? MediaQuery.of(context).size.width / 3.2
-          : MediaQuery.of(context).size.width / 6,
-      // height: 150, // Half of the screen width
-      child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius:
-              BorderRadius.circular(30.0), // Adjust the value for desired curve
-        ),
-        child: Stack(
-          children: [
-            Image.asset(
-              index==0?'assets/cardflat.png':index==1?'assets/cardpg.png':'assets/cardlaundry.png',
-              fit: BoxFit.cover,
-              width: double.infinity,
-              height: double.infinity,
-            ),
-            ListTile(
-              title: Text(index == 0
-                  ? "Flat"
-                  : index == 1
-                      ? "PG"
-                      : "Laundry"),
-              // subtitle: Text('Card Subtitle'),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
 
   Widget _bottomIconsStyle(BuildContext context, int index, String title) {
     final theme = Theme.of(context);

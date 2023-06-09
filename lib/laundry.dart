@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sb/const/imagename.dart';
 import 'const/screen.dart';
 import 'const/CustomColors.dart';
 
@@ -305,9 +306,14 @@ class _LaundryState extends State<Laundry> {
   }
 
   Category(String title, IconData iconData) => Container(
+
     padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
     decoration: BoxDecoration(
-        color: Colors.white,
+        color: title=="Wash and Iron"?AppColors.yellow:title=="Dry Clean"?AppColors.bluecard:title=="Ironing"?AppColors.pinkcard:AppColors.lightOrange,
+        image: DecorationImage(image: AssetImage(title=="Wash and Iron"?washAndIron:title=="Dry Clean"?dryClean:title=="Ironing"?Ironing:chemicalWash),
+        fit: BoxFit.contain,
+          alignment: Alignment.center
+        ),
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
@@ -325,14 +331,12 @@ class _LaundryState extends State<Laundry> {
             title,
             style: const TextStyle(
               fontSize: 20,
-              color: AppColors.lightBlueTheme,
+              color: Colors.white,
+              fontWeight: FontWeight.bold
             )
         ),
-        const SizedBox(height: 8),
-        Icon(
-            iconData,
-            color: AppColors.darkBlueTheme, size: 30,
-        ),
+        const SizedBox(height: 30),
+
       ],
     ),
   );

@@ -14,7 +14,7 @@ build/
 .txt
 .cmake
 .h
-
+assets
 # IntelliJ related
 *.iml
 *.ipr

@@ -1,0 +1,9 @@
+const washAndIron = "assets/icons/washcards.png";
+const dryClean ="assets/icons/drycleanings.png";
+const Ironing ="assets/icons/iron.png";
+const chemicalWash ="assets/icons/chemicalwash.png";
+const hostelcard ="assets/icons/hostelcard.png";
+const cabcard ="assets/icons/cabcard.png";
+const Flatcard ="assets/icons/pgcard.png";
+const Pgcard ="assets/icons/flatcard.png";
+const Laundrycard ="assets/icons/laundrycard.png";

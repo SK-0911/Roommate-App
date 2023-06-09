@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sb/homePage.dart';
 import 'package:sb/laundry.dart';
 import 'package:sb/splash.dart';
 import 'package:sb/login.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:  Laundry(),
+      home: MyHomePage(title: ""),
       debugShowCheckedModeBanner: false,
     );
   }
