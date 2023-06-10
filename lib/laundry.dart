@@ -114,24 +114,24 @@ class _LaundryState extends State<Laundry> {
 
             // Laundry Services
             Container(
+                height: 180,
                 padding: EdgeInsets.all(25),
-                decoration: BoxDecoration(
-                  // color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: GridView.count(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 20,
-                  mainAxisSpacing: 20,
+                // decoration: BoxDecoration(
+                //   // color: Colors.white,
+                //   borderRadius: BorderRadius.circular(10),
+                // ),
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
                   children: [
                     Category("Wash and Iron", Icons.wash),
+                    const SizedBox(width: 10),
                     Category("Dry Clean", Icons.dry_cleaning),
+                    const SizedBox(width: 10),
                     Category("Ironing", Icons.iron),
-                    Category("Chemical wash", Icons.wash),
+                    const SizedBox(width: 10),
+                    Category("Chemical Wash", Icons.wash)
                   ],
-                ),
+                )
               ),
 
             const SizedBox(height: 8),
@@ -305,13 +305,15 @@ class _LaundryState extends State<Laundry> {
   }
 
   Category(String title, IconData iconData) => Container(
-    padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
+    height: MediaQuery.of(context).size.height/2.5,
+    width: MediaQuery.of(context).size.width/5,
+    padding: const EdgeInsets.only(top: 10, left: 10, right: 10, bottom: 10),
     decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
-              offset: const Offset(0, 5),
+              // offset: const Offset(0, 5),
               color: Colors.black.withOpacity(.2),
               spreadRadius: 2,
               blurRadius: 5
