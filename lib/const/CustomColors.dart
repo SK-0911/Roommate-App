@@ -9,6 +9,7 @@ class AppColors{
   static const lightOrange = Color(0xfffeb74d);
   static const pinkcard = Color(0xfffe9789);
   static const bluecard = Color(0xff44b8de);
+  static const lightgreen = Color(0xffd9ffd9);
 
 
 }
