@@ -148,4 +148,44 @@ class _bookingDetailsState extends State<bookingDetails> {
       ),
     );
   }
+
+
+ CustomDialog(context){
+    String? selectedItem;
+    List<String> dropdownItems = [
+      'T-shirts',
+      'Pants',
+      'Socks',
+      'Bedsheets',
+      'Jeans',
+      'Others',
+    ];
+    return showDialog(context: context, builder:(BuildContext context){
+      return AlertDialog(
+        content: Text("Add Category"),
+        actions: [
+          Center(
+            child: DropdownButton<String>(
+              value: selectedItem,
+              items: dropdownItems.map((String item) {
+                return DropdownMenuItem<String>(
+                  value: item,
+                  child: Container(
+                      width: MediaQuery.of(context).size.width/3,
+                      child: Text(item)),
+                );
+              }).toList(),
+              onChanged: ( newValue) {
+               setState(() {
+                 selectedItem = newValue;
+
+               });
+              },
+            ),),
+        ],
+      );
+    }
+    );
+  }
+
 }
