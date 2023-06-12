@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sb/const/CustomColors.dart';
 
+import '../const/customdialog.dart';
 import '../const/imagename.dart';
 
 class bookingDetails extends StatefulWidget {
@@ -130,7 +131,9 @@ class _bookingDetailsState extends State<bookingDetails> {
                     style: ElevatedButton.styleFrom(
                       shadowColor: Colors.grey.shade50,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      CustomDialog(context);
+                    },
                     child: Text("Add Category",
                         style: TextStyle(
                             fontWeight: FontWeight.bold,

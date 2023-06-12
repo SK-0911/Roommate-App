@@ -10,6 +10,8 @@ class AppColors{
   static const pinkcard = Color(0xfffe9789);
   static const bluecard = Color(0xff44b8de);
   static const lightgreen = Color(0xffd9ffd9);
+  static const lightblueT = Color(0xff68e1f1);
+  static const greenTheme  = Color(0xff209377);
 
 
 }
