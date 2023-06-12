@@ -3,6 +3,8 @@ import 'package:sb/Screens/laundrybooking.dart';
 import 'package:sb/const/imagename.dart';
 import 'const/screen.dart';
 import 'const/CustomColors.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:another_carousel_pro/another_carousel_pro.dart';
 
 class Laundry extends StatefulWidget {
   const Laundry({Key? key}) : super(key: key);
@@ -12,6 +14,15 @@ class Laundry extends StatefulWidget {
 }
 
 class _LaundryState extends State<Laundry> {
+
+  List adsList = [
+    {"id": 1, "imgPath": 'assets/facebook.png'},
+    {"id": 2, "imgPath": 'assets/facebook.png'},
+    {"id": 3, "imgPath": 'assets/facebook.png'}
+  ];
+
+  final CarouselController adsController = CarouselController();
+  int currentAd = 0;
 
   final TableRow _orderDetails = const TableRow(
     children: [
@@ -292,6 +303,29 @@ class _LaundryState extends State<Laundry> {
                   ),
                 ),
             ),
+
+            const SizedBox(height: 30),
+
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 45),
+              child: Center(
+                child: SizedBox(
+                  height: 200,
+                  width: MediaQuery.of(context).size.width,
+                  child: AnotherCarousel(
+                    images: [
+                      Image.asset('assets/icons/apple.png', fit: BoxFit.cover,),
+                      Image.asset('assets/icons/google.png', fit: BoxFit.cover,),
+                      Image.asset('assets/icons/facebook.png', fit: BoxFit.cover,),
+                    ],
+                    dotSize: 4.0,
+                    dotIncreaseSize: 2.5,
+                    dotSpacing: 15.0,
+                    boxFit: BoxFit.scaleDown,
+                  ),
+                ),
+              ),
+            )
 
           ],
         ),
