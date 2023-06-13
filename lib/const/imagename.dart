@@ -7,3 +7,6 @@ const cabcard ="assets/icons/cabcard.png";
 const Flatcard ="assets/icons/pgcard.png";
 const Pgcard ="assets/icons/flatcard.png";
 const Laundrycard ="assets/icons/laundrycard.png";
+const fbIcon = "assets/icons/facebook.png";
+const appleIcon = "assets/icons/apple.png";
+const googleIcon = "assets/icons/google.png";

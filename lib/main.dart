@@ -4,6 +4,7 @@ import 'package:sb/laundry.dart';
 import 'package:sb/splash.dart';
 import 'package:sb/login.dart';
 import 'hostelListing.dart';
+import 'package:sb/Screens/search.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: ""),
+      home: Search(),
       debugShowCheckedModeBanner: false,
     );
   }
