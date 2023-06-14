@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sb/Screens/clothingList.dart';
 import 'package:sb/const/CustomColors.dart';
 
 import '../const/customdialog.dart';
@@ -16,6 +17,27 @@ class bookingDetails extends StatefulWidget {
 }
 
 class _bookingDetailsState extends State<bookingDetails> {
+
+  static List clothingItems = [
+    Cloths('T-shirts'),
+    Cloths('Pants'),
+    Cloths('Socks'),
+    Cloths('Bedsheets'),
+    Cloths('Jeans'),
+    Cloths('Others'),
+  ];
+
+  List displayItems = List.from(clothingItems);
+
+  void filterList(String value){
+    setState(() {
+      displayItems = clothingItems;
+      displayItems = clothingItems.where((element) => element.cloth.toLowerCase().contains(value)).toList();
+    });
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -132,7 +154,7 @@ class _bookingDetailsState extends State<bookingDetails> {
                       shadowColor: Colors.grey.shade50,
                     ),
                     onPressed: () {
-                      CustomDialog(context);
+                      selectClothingDialog(context);
                     },
                     child: Text("Add Category",
                         style: TextStyle(
@@ -182,6 +204,82 @@ class _bookingDetailsState extends State<bookingDetails> {
                });
               },
             ),),
+        ],
+      );
+    }
+    );
+  }
+
+  selectClothingDialog(context){
+
+    return showDialog(context: context, builder: (BuildContext context){
+      return AlertDialog(
+        content: TextField(
+          onChanged: (val) => filterList(val),
+          decoration: InputDecoration(
+            filled: true,
+            fillColor: Colors.grey.withOpacity(0.2),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8.0),
+              borderSide: BorderSide.none,
+            ),
+            hintText: "Search",
+            hintStyle: TextStyle(
+              color: Colors.black.withOpacity(0.4),
+            ),
+            prefixIcon: Icon(Icons.search),
+            prefixIconColor: Colors.white,
+          ),
+        ),
+        actions: [
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 15),
+            margin: EdgeInsets.only(bottom: 20),
+            child: Divider(
+              color: AppColors.lightBlueTheme,
+              thickness: 2,
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 15),
+            // color: Colors.grey,
+            height: 300,
+            width: 300,
+            child: ListView.separated(
+                  itemCount: displayItems.length,
+                  itemBuilder: (context, index) {
+                    // bool isChecked = false;
+                    return Container(
+                    decoration: BoxDecoration(
+                      color: AppColors.lightBlueTheme,
+                    ),
+                    child: ListTile(
+                      // trailing: Checkbox(
+                      //   value: isChecked,
+                      //   // activeColor: AppColors.darkBlueTheme,
+                      //   onChanged: (bool? value) {
+                      //     setState(() {
+                      //       isChecked = value ?? false;
+                      //     });
+                      //   },
+                      // ),
+                      contentPadding: EdgeInsets.all(5.0),
+                      title: Text(
+                        displayItems[index].cloth,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                  );
+                  },
+                  separatorBuilder: (BuildContext context, int index) {
+                    return const SizedBox(height: 5);
+                  },
+              ),
+            ),
         ],
       );
     }

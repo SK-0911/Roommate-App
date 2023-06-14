@@ -170,7 +170,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     fit: BoxFit.fill,
                                     height: 120,
                                   ),
-                                  ListTile(
+                                  const ListTile(
                                     title: Text("Hostel",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
                                     // subtitle: Text('Card Subtitle'),
                                   ),
@@ -201,7 +201,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   height: 120,
                                   ),
                                   ListTile(
-                                    title: Text("cab",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                                    title: Text("Cab",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
                                     // subtitle: Text('Card Subtitle'),
                                   ),),
                                 ],
@@ -246,30 +246,34 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ),
                       Center(
-                        child: Container(
+                        child: InkWell(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (_)=>const Laundry()));
+                          },
+                          child: Container(
+                            width: Screen.isPortrait(context)
+                                ? MediaQuery.of(context).size.width / 3.2
+                                : MediaQuery.of(context).size.width / 4,
+                            // height: 150, // Half of the screen width
+                            child: Card(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(
+                                    40.0), // Adjust the value for desired curve
+                              ),
+                              child: Container(
 
-                          width: Screen.isPortrait(context)
-                              ? MediaQuery.of(context).size.width / 3.2
-                              : MediaQuery.of(context).size.width / 4,
-                          // height: 150, // Half of the screen width
-                          child: Card(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(
-                                  40.0), // Adjust the value for desired curve
-                            ),
-                            child: Container(
-
-                              child: Stack(
-                                children: [
-                                  Image.asset(Pgcard,
-                                    fit: BoxFit.fill,
-                                    height: 100,
-                                  ),
-                                  ListTile(
-                                    title: Text("PG",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
-                                      // subtitle: Text('Card Subtitle'),
-                                    ),),
-                                ],
+                                child: Stack(
+                                  children: [
+                                    Image.asset(Pgcard,
+                                      fit: BoxFit.fill,
+                                      height: 100,
+                                    ),
+                                    ListTile(
+                                      title: Text("PG",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                                        // subtitle: Text('Card Subtitle'),
+                                      ),),
+                                  ],
+                                ),
                               ),
                             ),
                           ),

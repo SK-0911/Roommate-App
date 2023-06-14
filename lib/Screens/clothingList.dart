@@ -1,9 +1,7 @@
-import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
 
-List cloths = ["Shirts", "Pants", "Blazer"];
+class Cloths {
+  String cloth;
 
-Widget addCategory(context){
-  return Column(
-
-  );
+  Cloths(this.cloth);
 }
