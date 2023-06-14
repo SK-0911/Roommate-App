@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:sb/Screens/search.dart';
 import 'package:sb/const/imagename.dart';
 import 'package:sb/laundry.dart';
 import 'package:sb/utils/landscape_main.dart';
@@ -162,19 +163,24 @@ class _MyHomePageState extends State<MyHomePage> {
                               borderRadius: BorderRadius.circular(
                                   30.0), // Adjust the value for desired curve
                             ),
-                            child: Container(
+                            child: InkWell(
+                              onTap: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (_)=>const Search()));
+                              },
+                              child: Container(
 
-                              child: Stack(
-                                children: [
-                                  Image.asset(hostelcard,
-                                    fit: BoxFit.fill,
-                                    height: 120,
-                                  ),
-                                  ListTile(
-                                    title: Text("Hostel",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
-                                    // subtitle: Text('Card Subtitle'),
-                                  ),
-                                ],
+                                child: Stack(
+                                  children: [
+                                    Image.asset(hostelcard,
+                                      fit: BoxFit.fill,
+                                      height: 120,
+                                    ),
+                                    ListTile(
+                                      title: Text("Hostel",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+                                      // subtitle: Text('Card Subtitle'),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),

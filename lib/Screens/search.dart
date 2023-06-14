@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sb/const/CustomColors.dart';
 import '../const/cities.dart';
+import '../hostelListing.dart';
 
 class Search extends StatefulWidget {
   const Search({Key? key}) : super(key: key);
@@ -91,10 +92,15 @@ class _SearchState extends State<Search> {
                             color: Colors.white38,
                           ),
                         ),
-                        trailing: Icon(
-                            Icons.arrow_forward_ios_outlined,
-                            color: Colors.white,
-                            size: 15,
+                        trailing: InkWell(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (_)=>Listing()));
+                          },
+                          child: Icon(
+                              Icons.arrow_forward_ios_outlined,
+                              color: Colors.white,
+                              size: 15,
+                          ),
                         ),
                       ),
                   ) : const Center(
