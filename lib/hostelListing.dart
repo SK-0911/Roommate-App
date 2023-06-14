@@ -1,5 +1,7 @@
+import 'package:another_carousel_pro/another_carousel_pro.dart';
 import 'package:flutter/material.dart';
 import 'package:sb/utils/landscape_main.dart';
+import 'const/imagename.dart';
 import 'const/screen.dart';
 import 'const/CustomColors.dart';
 import 'navbar.dart';
@@ -17,6 +19,17 @@ class _ListingState extends State<Listing> {
     bool isTablet = Screen().isTab(context);
 
     return Scaffold(
+      appBar: AppBar(
+        leading: InkWell(
+            onTap: (){
+              Navigator.pop(context);
+            },
+            child: Icon(Icons.arrow_back_ios,color: Colors.black)),
+        // foregroundColor: Colors.white,
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title:Text("Hostel",style: TextStyle(color: Colors.black)),
+      ),
       body: LandscapeView(
         middleRatio: 2,
         middleWidget: ListView(scrollDirection: Axis.vertical, children: [
@@ -62,6 +75,17 @@ class _ListingState extends State<Listing> {
                   // image: DecorationImage(
                   //   image: NetworkImage(),
                   // ),
+                ),
+                child:  AnotherCarousel(
+                  images: [
+                    Image.asset(washAndIron, fit: BoxFit.cover,),
+                    Image.asset(chemicalWash, fit: BoxFit.cover,),
+                    Image.asset(dryClean, fit: BoxFit.cover,),
+                  ],
+                  dotSize: 4.0,
+                  dotIncreaseSize: 2.5,
+                  dotSpacing: 15.0,
+                  boxFit: BoxFit.scaleDown,
                 ),
               ),
               const SizedBox(height: 10),
