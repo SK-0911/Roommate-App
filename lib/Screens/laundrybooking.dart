@@ -28,6 +28,7 @@ class _bookingDetailsState extends State<bookingDetails> {
     Cloths('Jeans'),
     Cloths('Others'),
   ];
+  int shirts=0,pants=0;
 
   List displayItems = List.from(clothingItems);
 
@@ -314,7 +315,7 @@ class _bookingDetailsState extends State<bookingDetails> {
               GestureDetector(
                 onTap: (){
                   setState(() {
-                    counterValue++;
+                    cloth=="Shirts"?shirts++:pants++;
                   });
                 },
                 child: Container(
@@ -329,11 +330,11 @@ class _bookingDetailsState extends State<bookingDetails> {
 
               // Counter Value
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 30),
+                padding: EdgeInsets.symmetric(horizontal: 25),
                 color: AppColors.lightBlueTheme.withOpacity(0.2),
                 child: Center(
                   child: Text(
-                    "$counterValue",
+                    cloth=="Shirts"?"$shirts":"$pants",
                     style: TextStyle(
                       fontSize: 30,
                     ),

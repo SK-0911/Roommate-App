@@ -179,6 +179,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     title: Text("Hostel",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
                                     // subtitle: Text('Card Subtitle'),
                                   ),
+
                                 ],
                               ),
                             ),
