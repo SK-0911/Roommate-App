@@ -1026,12 +1026,13 @@ class _MyHomePageState extends State<MyHomePage> {
                       offset: isTablet ? Offset(0, 0) : Offset(0, -2)),
                 ]),
             height: 75,
-            padding: EdgeInsets.symmetric(horizontal: 40),
+            padding: EdgeInsets.symmetric(horizontal: 30),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 _bottomIconsStyle(context, 0, 'Home'),
                 _bottomIconsStyle(context, 1, 'My Booking'),
+                const SizedBox(width: 15),
                 _bottomIconsStyle(context, 2, 'Offers'),
                 _bottomIconsStyle(context, 3, 'more'),
               ],

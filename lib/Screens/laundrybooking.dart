@@ -39,7 +39,7 @@ class _bookingDetailsState extends State<bookingDetails> {
     });
   }
 
-
+  int counterValue = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -159,13 +159,50 @@ class _bookingDetailsState extends State<bookingDetails> {
                     onPressed: () {
                       selectClothingDialog(context);
                     },
-                    child: Text("Add Category",
+                    child: const Text("Add Category",
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 18,
-                            color: Colors.white)),
+                            color: Colors.white)
+                    ),
                   ),
                 ),
+
+                const SizedBox(height: 30),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    clothingCounter("Shirts"),
+                    clothingCounter("Pants")
+                  ],
+                ),
+
+                const SizedBox(height: 30),
+
+                // Container(
+                //   color: AppColors.darkBlueTheme,
+                //   // padding: EdgeInsets.all(8.0),
+                //   margin: EdgeInsets.symmetric(horizontal: 120),
+                //   child: Center(
+                //       child: Row(
+                //         children: [
+                //           Text(
+                //               "Proceed",
+                //               style: TextStyle(
+                //                 color: Colors.white,
+                //               ),
+                //           ),
+                //           Icon(
+                //               Icons.local_laundry_service,
+                //               color: Colors.white,
+                //           )
+                //         ],
+                //       ),
+                //     ),
+                //   ),
+
+
               ],
             ),
           ],
@@ -251,6 +288,81 @@ class _bookingDetailsState extends State<bookingDetails> {
       );
     }
 
+    );
+  }
+
+  clothingCounter(String cloth){
+
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 30),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+              child: Text(
+                cloth,
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w200,
+                ),
+              )
+          ),
+          const SizedBox(height: 10),
+          Row(
+            children: [
+              // Plus Icon for counter
+              GestureDetector(
+                onTap: (){
+                  setState(() {
+                    counterValue++;
+                  });
+                },
+                child: Container(
+                  padding: EdgeInsets.all(5.0),
+                  color: AppColors.darkBlueTheme,
+                  child: Icon(
+                    Icons.add,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+
+              // Counter Value
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 30),
+                color: AppColors.lightBlueTheme.withOpacity(0.2),
+                child: Center(
+                  child: Text(
+                    "$counterValue",
+                    style: TextStyle(
+                      fontSize: 30,
+                    ),
+                  ),
+                ),
+              ),
+
+              // Plus Icon for counter
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    if(counterValue>0){
+                      counterValue--;
+                    }
+                  });
+                },
+                child: Container(
+                  padding: EdgeInsets.all(5.0),
+                  color: AppColors.lightGreenTheme,
+                  child: Icon(
+                    Icons.remove,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ],
+          )
+        ],
+      ),
     );
   }
 

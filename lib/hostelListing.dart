@@ -86,6 +86,7 @@ class _ListingState extends State<Listing> {
                   dotIncreaseSize: 2.5,
                   dotSpacing: 15.0,
                   boxFit: BoxFit.scaleDown,
+                  autoplay: false,
                 ),
               ),
               const SizedBox(height: 10),

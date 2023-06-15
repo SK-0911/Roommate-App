@@ -30,7 +30,7 @@ class _PGListingState extends State<PGListing> {
         // foregroundColor: Colors.white,
         backgroundColor: Colors.white,
         centerTitle: true,
-        title:Text("Pg",style: TextStyle(color: Colors.black)),
+        title:Text("PG",style: TextStyle(color: Colors.black)),
       ),
       body: LandscapeView(
         middleRatio: 2,
@@ -87,6 +87,7 @@ class _PGListingState extends State<PGListing> {
                 dotIncreaseSize: 2.5,
                 dotSpacing: 15.0,
                 boxFit: BoxFit.scaleDown,
+                autoplay: false,
               ),
             ),
             const SizedBox(height: 10),
