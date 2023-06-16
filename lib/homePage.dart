@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:sb/const/imagename.dart';
@@ -1027,15 +1028,26 @@ class _MyHomePageState extends State<MyHomePage> {
                       offset: isTablet ? Offset(0, 0) : Offset(0, -2)),
                 ]),
             height: 75,
-            padding: EdgeInsets.symmetric(horizontal: 30),
+            padding: EdgeInsets.symmetric(horizontal: 25),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              // mainAxisAlignment: MainAxisAlignment.spaceAround,
+              // mainAxisSize: MainAxisSize.min,
               children: [
-                _bottomIconsStyle(context, 0, 'Home'),
-                _bottomIconsStyle(context, 1, 'My Booking'),
-                const SizedBox(width: 15),
-                _bottomIconsStyle(context, 2, 'Offers'),
-                _bottomIconsStyle(context, 3, 'more'),
+                Row(
+                  children: [
+                    _bottomIconsStyle(context, 0, 'Home'),
+                    const SizedBox(width: 15),
+                    _bottomIconsStyle(context, 1, 'My Booking'),
+                  ],
+                ),
+                const SizedBox(width: 60),
+                Row(
+                  children: [
+                    _bottomIconsStyle(context, 2, 'Offers'),
+                    const SizedBox(width: 20),
+                    _bottomIconsStyle(context, 3, 'more'),
+                  ],
+                ),
               ],
             ),
           ),
@@ -1048,7 +1060,11 @@ class _MyHomePageState extends State<MyHomePage> {
     final theme = Theme.of(context);
     return SizedBox(
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          setState(() {
+            _selectedIndex = index;
+          });
+        },
         child: Container(
           padding: EdgeInsets.all(5),
           child: Column(
@@ -1068,6 +1084,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 // height: 21,
                 color: _selectedIndex == index ? Colors.blue : Colors.grey,
               ),
+
               SizedBox(
                 height: 20,
               ),

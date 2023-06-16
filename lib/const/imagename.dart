@@ -10,3 +10,4 @@ const Laundrycard ="assets/icons/laundrycard.png";
 const fbIcon = "assets/icons/facebook.png";
 const appleIcon = "assets/icons/apple.png";
 const googleIcon = "assets/icons/google.png";
+const serviceBoxIcon = "assets/icons/servicebox.png";

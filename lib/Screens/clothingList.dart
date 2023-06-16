@@ -2,6 +2,7 @@
 
 class Cloths {
   String cloth;
+  int quantity;
 
-  Cloths(this.cloth);
+  Cloths(this.cloth, this.quantity);
 }

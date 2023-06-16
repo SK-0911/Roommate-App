@@ -21,12 +21,12 @@ class bookingDetails extends StatefulWidget {
 class _bookingDetailsState extends State<bookingDetails> {
   String SelectedItem ="";
   static List clothingItems = [
-    Cloths('T-shirts'),
-    Cloths('Pants'),
-    Cloths('Socks'),
-    Cloths('Bedsheets'),
-    Cloths('Jeans'),
-    Cloths('Others'),
+    Cloths('T-shirts', 0),
+    Cloths('Pants', 0),
+    Cloths('Socks', 0),
+    Cloths('Bedsheets', 0),
+    Cloths('Jeans', 0),
+    Cloths('Others', 0),
   ];
   int shirts=0,pants=0;
 
@@ -174,8 +174,18 @@ class _bookingDetailsState extends State<bookingDetails> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    clothingCounter("Shirts"),
-                    clothingCounter("Pants")
+                    clothingCounter(0),
+                    clothingCounter(1)
+                  ],
+                ),
+
+                const SizedBox(height: 20),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    clothingCounter(2),
+                    clothingCounter(3)
                   ],
                 ),
 
@@ -292,7 +302,7 @@ class _bookingDetailsState extends State<bookingDetails> {
     );
   }
 
-  clothingCounter(String cloth){
+  clothingCounter(int clothingIndex){
 
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 30),
@@ -301,7 +311,7 @@ class _bookingDetailsState extends State<bookingDetails> {
         children: [
           Container(
               child: Text(
-                cloth,
+                displayItems[clothingIndex].cloth,
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w200,
@@ -311,18 +321,20 @@ class _bookingDetailsState extends State<bookingDetails> {
           const SizedBox(height: 10),
           Row(
             children: [
-              // Plus Icon for counter
+              // Minus Icon for counter
               GestureDetector(
-                onTap: (){
+                onTap: () {
                   setState(() {
-                    cloth=="Shirts"?shirts++:pants++;
+                    if(displayItems[clothingIndex].quantity>0){
+                      displayItems[clothingIndex].quantity--;
+                    }
                   });
                 },
                 child: Container(
                   padding: EdgeInsets.all(5.0),
-                  color: AppColors.darkBlueTheme,
+                  color: AppColors.lightGreenTheme,
                   child: Icon(
-                    Icons.add,
+                    Icons.remove,
                     color: Colors.white,
                   ),
                 ),
@@ -334,7 +346,7 @@ class _bookingDetailsState extends State<bookingDetails> {
                 color: AppColors.lightBlueTheme.withOpacity(0.2),
                 child: Center(
                   child: Text(
-                    cloth=="Shirts"?"$shirts":"$pants",
+                    "${displayItems[clothingIndex].quantity}",
                     style: TextStyle(
                       fontSize: 30,
                     ),
@@ -344,18 +356,16 @@ class _bookingDetailsState extends State<bookingDetails> {
 
               // Plus Icon for counter
               GestureDetector(
-                onTap: () {
+                onTap: (){
                   setState(() {
-                    if(counterValue>0){
-                      counterValue--;
-                    }
+                    displayItems[clothingIndex].quantity++;
                   });
                 },
                 child: Container(
                   padding: EdgeInsets.all(5.0),
-                  color: AppColors.lightGreenTheme,
+                  color: AppColors.darkBlueTheme,
                   child: Icon(
-                    Icons.remove,
+                    Icons.add,
                     color: Colors.white,
                   ),
                 ),

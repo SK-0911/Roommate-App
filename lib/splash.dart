@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sb/const/CustomColors.dart';
+import '../const/imagename.dart';
 import 'package:sb/main.dart';
 import 'package:sb/login.dart';
 
@@ -15,7 +17,7 @@ class _SplashState extends State<Splash> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    _navigatetohome();
+    // _navigatetohome();
   }
 
   _navigatetohome()async {
@@ -31,56 +33,59 @@ class _SplashState extends State<Splash> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: const Color(0xff98A3f4),
+        color: AppColors.darkBlueTheme,
         child: Center(
           child: Container(
-            child:
-            RichText(
-              text:
-              const TextSpan(
-                style:  TextStyle (
-                  fontSize:  55,
-                  fontWeight: FontWeight.w600,
-                  // height:  150,
-                  color:  Color(0xff000000),
-                ),
-                children:  [
-                  TextSpan(
-                    text:  'R',
-                    style:  TextStyle (
-                      // 'Poppins',
-                      fontSize:  55,
-                      fontWeight:  FontWeight.w600,
-                      // height:  150,
-                      color:  Color(0xff000000),
-                    ),
-                  ),
-                  TextSpan(
-                    text:  'OO',
-                    style:  TextStyle (
-                      // 'Poppins',
-                      fontSize:  55,
-                      fontWeight:  FontWeight.w600,
-                      // height:  150,
-                      color:  Color(0xffffffff),
-                    ),
-                  ),
-                  TextSpan(
-                    text:  'MMATE',
-                    style:  TextStyle (
-                      // 'Poppins',
-                      fontSize:  55,
-                      fontWeight:  FontWeight.w600,
-                      // height:  150,
-                      color:  Color(0xff000000),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            child: Image.asset(serviceBoxIcon),
           ),
         ),
       ),
     );
   }
 }
+
+
+// Roommate text
+// RichText(
+// text:
+// const TextSpan(
+// style:  TextStyle (
+// fontSize:  55,
+// fontWeight: FontWeight.w600,
+// // height:  150,
+// color:  Color(0xff000000),
+// ),
+// children:  [
+// TextSpan(
+// text:  'R',
+// style:  TextStyle (
+// // 'Poppins',
+// fontSize:  55,
+// fontWeight:  FontWeight.w600,
+// // height:  150,
+// color:  Color(0xff000000),
+// ),
+// ),
+// TextSpan(
+// text:  'OO',
+// style:  TextStyle (
+// // 'Poppins',
+// fontSize:  55,
+// fontWeight:  FontWeight.w600,
+// // height:  150,
+// color:  Color(0xffffffff),
+// ),
+// ),
+// TextSpan(
+// text:  'MMATE',
+// style:  TextStyle (
+// // 'Poppins',
+// fontSize:  55,
+// fontWeight:  FontWeight.w600,
+// // height:  150,
+// color:  Color(0xff000000),
+// ),
+// ),
+// ],
+// ),
+// )
