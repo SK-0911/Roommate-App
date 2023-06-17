@@ -86,7 +86,47 @@ class _ProfileState extends State<Profile> {
                       const SizedBox(height: 30),
 
                       Container(
-
+                        child: Center(
+                          child: Column(
+                            children: [
+                              ListTile(
+                                leading: Icon(Icons.person),
+                                title: Text(
+                                  "My Account",
+                                ),
+                                trailing: Icon(Icons.arrow_forward_ios_outlined),
+                              ),
+                              ListTile(
+                                leading: Icon(Icons.location_on),
+                                title: Text(
+                                  "Addresses",
+                                ),
+                                trailing: Icon(Icons.arrow_forward_ios_outlined),
+                              ),
+                              ListTile(
+                                leading: Icon(Icons.payments),
+                                title: Text(
+                                  "Transaction History",
+                                ),
+                                trailing: Icon(Icons.arrow_forward_ios_outlined),
+                              ),
+                              ListTile(
+                                leading: Icon(Icons.attach_money),
+                                title: Text(
+                                  "Payments",
+                                ),
+                                trailing: Icon(Icons.arrow_forward_ios_outlined),
+                              ),
+                              ListTile(
+                                leading: Icon(Icons.chat),
+                                title: Text(
+                                  "Help & FAQ",
+                                ),
+                                trailing: Icon(Icons.arrow_forward_ios_outlined),
+                              ),
+                            ],
+                          ),
+                        ),
                       )
                     ],
                   ),
