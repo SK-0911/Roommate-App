@@ -992,13 +992,13 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
 
         // Home, Listing, Middle icon(profile), Offers, More (with title)
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: Icon(Icons.person),
-          backgroundColor: AppColors.lightBlueTheme,
-          elevation: 0,
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        // floatingActionButton: FloatingActionButton(
+        //   onPressed: () {},
+        //   child: Icon(Icons.person),
+        //   backgroundColor: AppColors.lightBlueTheme,
+        //   elevation: 0,
+        // ),
+        // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: SafeArea(
           child: Container(
             margin: Screen().isTab(context)
@@ -1030,24 +1030,15 @@ class _MyHomePageState extends State<MyHomePage> {
             height: 75,
             padding: EdgeInsets.symmetric(horizontal: 25),
             child: Row(
-              // mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               // mainAxisSize: MainAxisSize.min,
               children: [
-                Row(
-                  children: [
-                    _bottomIconsStyle(context, 0, 'Home'),
-                    const SizedBox(width: 15),
-                    _bottomIconsStyle(context, 1, 'My Booking'),
-                  ],
-                ),
-                const SizedBox(width: 60),
-                Row(
-                  children: [
-                    _bottomIconsStyle(context, 2, 'Offers'),
-                    const SizedBox(width: 20),
-                    _bottomIconsStyle(context, 3, 'more'),
-                  ],
-                ),
+                _bottomIconsStyle(context, 0, 'Home'),
+                // const SizedBox(width: 15),
+                _bottomIconsStyle(context, 1, 'My Booking'),
+                _bottomIconsStyle(context, 2, 'Offers'),
+                // const SizedBox(width: 20),
+                _bottomIconsStyle(context, 3, 'more'),
               ],
             ),
           ),
