@@ -13,6 +13,7 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // bottomSheet: BottomSheet(builder: (context) => ,),
       backgroundColor: AppColors.darkBlueTheme,
       body: LandscapeView(
         middleRatio: 2,
@@ -52,82 +53,55 @@ class _ProfileState extends State<Profile> {
                   ],
                 ),
               ),
-
-              const SizedBox(height: 20),
+              // const SizedBox(height: 20),
 
               Container(
-                color: Colors.white,
+                // color: Colors.white,
                 child: Center(
                   child: Column(
                     children: [
+                      SizedBox(height: MediaQuery.of(context).size.height*0.1),
                       Container(
-                        padding: EdgeInsets.symmetric(horizontal: 40),
-                        decoration: BoxDecoration(
-                          color: AppColors.lightBlueTheme,
-                          shape: BoxShape.circle,
-                        ),
-                        child: Icon(
-                          Icons.person,
-                          size: 80,
-                          color: Colors.black,
-                        ),
-                      ),
-
-                      const SizedBox(height: 15),
-
-                      Text(
-                        "+91 1234 | abc@gmail.com",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 15,
-                        ),
-                      ),
-
-                      const SizedBox(height: 30),
-
-                      Container(
-                        child: Center(
-                          child: Column(
-                            children: [
-                              ListTile(
-                                leading: Icon(Icons.person),
-                                title: Text(
-                                  "My Account",
-                                ),
-                                trailing: Icon(Icons.arrow_forward_ios_outlined),
-                              ),
-                              ListTile(
-                                leading: Icon(Icons.location_on),
-                                title: Text(
-                                  "Addresses",
-                                ),
-                                trailing: Icon(Icons.arrow_forward_ios_outlined),
-                              ),
-                              ListTile(
-                                leading: Icon(Icons.payments),
-                                title: Text(
-                                  "Transaction History",
-                                ),
-                                trailing: Icon(Icons.arrow_forward_ios_outlined),
-                              ),
-                              ListTile(
-                                leading: Icon(Icons.attach_money),
-                                title: Text(
-                                  "Payments",
-                                ),
-                                trailing: Icon(Icons.arrow_forward_ios_outlined),
-                              ),
-                              ListTile(
-                                leading: Icon(Icons.chat),
-                                title: Text(
-                                  "Help & FAQ",
-                                ),
-                                trailing: Icon(Icons.arrow_forward_ios_outlined),
-                              ),
-                            ],
+                        decoration: const BoxDecoration(
+                          color: Color(0xffffffff),
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(30),
+                            topRight: Radius.circular(30),
                           ),
                         ),
-                      )
+                        child:   Column(
+                          children: [
+                            SizedBox(height: MediaQuery.of(context).size.height*0.1,),
+                            Text(
+                              "+91 1234 | abc@gmail.com",
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 15,
+                              ),
+                            ),
+                            //card view
+                            Padding(
+                              padding: EdgeInsets.all(10),
+                              child: Card(
+                                child: Container(
+                                  height: MediaQuery.of(context).size.height*0.2,
+                                ),
+                                color: AppColors.darkBlueTheme,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 15),
+                            //tiles for navigation
+                            tile("My Account"),
+                            tile("Addresses"),
+                            tile("Transaction History"),
+                            tile("Payments"),
+                            tile("Help & FAQ")
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -136,5 +110,18 @@ class _ProfileState extends State<Profile> {
         ),
       ),
     );
+  }
+  tile(String name){
+   return Container(
+     height: MediaQuery.of(context).size.height*0.08,
+     child: ListTile(
+
+        leading: Icon(Icons.chat),
+        title: Text(
+          name,
+        ),
+        trailing: Icon(Icons.arrow_forward_ios_outlined),
+      ),
+   );
   }
 }

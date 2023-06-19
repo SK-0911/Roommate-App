@@ -5,6 +5,7 @@ import 'package:sb/flatListing.dart';
 import 'package:sb/homePage.dart';
 import 'package:sb/laundry.dart';
 import 'package:sb/pgListing.dart';
+import 'package:sb/sample.dart';
 import 'package:sb/splash.dart';
 import 'package:sb/login.dart';
 import 'hostelListing.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Profile(),
+      home: Login(),
       debugShowCheckedModeBanner: false,
     );
   }

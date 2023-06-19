@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:sb/Screens/profile.dart';
 import 'package:sb/const/imagename.dart';
 import 'package:sb/flatListing.dart';
 import 'package:sb/laundry.dart';
@@ -53,17 +54,22 @@ class _MyHomePageState extends State<MyHomePage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            color: AppColors.darkBlueTheme,
-                            borderRadius: BorderRadius.circular(30),
-                          ),
+                        InkWell(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (_)=>Profile()));
+                          },
                           child: Container(
-                            padding: EdgeInsets.all(5),
-                            child: const Icon(
-                              Icons.person,
-                              size: 30,
-                              color: Colors.white,
+                            decoration: BoxDecoration(
+                              color: AppColors.darkBlueTheme,
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            child: Container(
+                              padding: EdgeInsets.all(5),
+                              child: const Icon(
+                                Icons.person,
+                                size: 30,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
                         ),
@@ -1048,7 +1054,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
   Widget _bottomIconsStyle(BuildContext context, int index, String title) {
-    final theme = Theme.of(context);
+   // / final theme = Theme.of(context);
     return SizedBox(
       child: InkWell(
         onTap: () {
