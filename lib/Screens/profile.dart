@@ -55,56 +55,74 @@ class _ProfileState extends State<Profile> {
               ),
               // const SizedBox(height: 20),
 
-              Container(
-                // color: Colors.white,
-                child: Center(
-                  child: Column(
-                    children: [
-                      SizedBox(height: MediaQuery.of(context).size.height*0.1),
-                      Container(
-                        decoration: const BoxDecoration(
-                          color: Color(0xffffffff),
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(30),
-                            topRight: Radius.circular(30),
+              Stack(
+                children: [
+                  Center(
+                    child: Column(
+                      children: [
+                        SizedBox(height: MediaQuery.of(context).size.height*0.1),
+                        Container(
+                          decoration: const BoxDecoration(
+                            color: Color(0xffffffff),
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(30),
+                              topRight: Radius.circular(30),
+                            ),
+                          ),
+                          child:   Column(
+                            children: [
+                              SizedBox(height: MediaQuery.of(context).size.height*0.1,),
+                              Text(
+                                "+91 1234 | abc@gmail.com",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                ),
+                              ),
+                              //card view
+                              Padding(
+                                padding: EdgeInsets.all(10),
+                                child: Card(
+                                  child: Container(
+                                    height: MediaQuery.of(context).size.height*0.2,
+                                  ),
+                                  color: AppColors.darkBlueTheme,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(30),
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(height: 15),
+                              //tiles for navigation
+                              tile("My Account"),
+                              tile("Addresses"),
+                              tile("Transaction History"),
+                              tile("Payments"),
+                              tile("Help & FAQ")
+                            ],
                           ),
                         ),
-                        child:   Column(
-                          children: [
-                            SizedBox(height: MediaQuery.of(context).size.height*0.1,),
-                            Text(
-                              "+91 1234 | abc@gmail.com",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 15,
-                              ),
-                            ),
-                            //card view
-                            Padding(
-                              padding: EdgeInsets.all(10),
-                              child: Card(
-                                child: Container(
-                                  height: MediaQuery.of(context).size.height*0.2,
-                                ),
-                                color: AppColors.darkBlueTheme,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(height: 15),
-                            //tiles for navigation
-                            tile("My Account"),
-                            tile("Addresses"),
-                            tile("Transaction History"),
-                            tile("Payments"),
-                            tile("Help & FAQ")
-                          ],
+                      ],
+                    ),
+                  ),
+                  Column(
+                    children: [
+                      // SizedBox(
+                      //   height: MediaQuery.of(context).size.height/0.3,
+                      // ),
+                      Center(
+                        child: Container(
+                          decoration: BoxDecoration(shape: BoxShape.circle,
+                            border: Border.all(width: 1),
+                            color: Colors.white
+                          ),
+                          padding: const EdgeInsets.only(top: 40.0),
+                          child: Icon(Icons.person,size: 100,color: Colors.black,),
                         ),
-                      ),
+                      )
                     ],
                   ),
-                ),
+                ],
               )
           ],
         ),

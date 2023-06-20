@@ -1029,7 +1029,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 boxShadow: [
                   BoxShadow(
                       color: Colors.grey,
-                      blurRadius: isTablet ? 7 : 1,
+                      blurRadius: isTablet ? 7 : 2,
                       spreadRadius: isTablet ? 0.3 : -1,
                       offset: isTablet ? Offset(0, 0) : Offset(0, -2)),
                 ]),
@@ -1068,29 +1068,36 @@ class _MyHomePageState extends State<MyHomePage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(
-                index == 0
-                    ? Icons.home
-                    : index == 1
-                        ? Icons.query_builder_outlined
-                        : index == 2
-                            ? Icons.local_offer
-                            : Icons.more_horiz,
-                size: 21,
-                // width: 21,
-                // height: 21,
-                color: _selectedIndex == index ? Colors.blue : Colors.grey,
+              Container(
+                padding: EdgeInsets.all(8.0),
+                decoration: BoxDecoration(shape: BoxShape.circle,
+                    // border: Border.all(width: 1),
+                    color:  _selectedIndex == index ? AppColors.darkBlueTheme : Colors.white
+                ),
+                child: Icon(
+                  index == 0
+                      ? Icons.home
+                      : index == 1
+                          ? Icons.query_builder_outlined
+                          : index == 2
+                              ? Icons.local_offer
+                              : Icons.more_horiz,
+                  size: 25,
+
+                  color: _selectedIndex == index ? Colors.white
+                      : Colors.black54,
+                ),
               ),
 
               SizedBox(
                 height: 20,
               ),
-              Text(
-                title,
-                style: TextStyle(
-                    fontSize: 12,
-                    color: _selectedIndex == index ? Colors.blue : Colors.grey),
-              )
+              // Text(
+              //   title,
+              //   style: TextStyle(
+              //       fontSize: 12,
+              //       color: _selectedIndex == index ? Colors.blue : Colors.grey),
+              // )
             ],
           ),
         ),

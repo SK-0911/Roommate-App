@@ -86,7 +86,7 @@ class _FlatListingState extends State<FlatListing> {
                 dotIncreaseSize: 2.5,
                 dotSpacing: 15.0,
                 boxFit: BoxFit.scaleDown,
-                autoplay: false,
+                autoplay: true,
               ),
             ),
             const SizedBox(height: 10),
