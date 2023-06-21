@@ -74,8 +74,6 @@ class _PGListingState extends State<PGListing> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
                 color: Colors.black87,
-
-
               ),
               child:  AnotherCarousel(
                 images: [

@@ -4,6 +4,7 @@ import 'package:sb/Screens/profile.dart';
 import 'package:sb/Screens/wallet.dart';
 import 'package:sb/flatListing.dart';
 import 'package:sb/homePage.dart';
+import 'package:sb/hostelInfo.dart';
 import 'package:sb/laundry.dart';
 import 'package:sb/pgListing.dart';
 import 'package:sb/sample.dart';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Login(),
+      home: HostelInfo(),
       debugShowCheckedModeBanner: false,
     );
   }

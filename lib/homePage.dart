@@ -3,6 +3,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:sb/Screens/profile.dart';
+import 'package:sb/Screens/search.dart';
+import 'package:sb/Screens/wallet.dart';
 import 'package:sb/const/imagename.dart';
 import 'package:sb/flatListing.dart';
 import 'package:sb/laundry.dart';
@@ -75,23 +77,33 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         // Notification, wallet and search
                         Row(
-                          children: const [
+                          children:  [
                             Icon(
                               Icons.notifications,
                               size: 30,
                               color: AppColors.darkBlueTheme,
                             ),
                             SizedBox(width: 10),
-                            Icon(
-                              Icons.wallet,
-                              size: 30,
-                              color: AppColors.darkBlueTheme,
+                            InkWell(
+                              onTap: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (_)=>Wallet()));
+                              },
+                              child: Icon(
+                                Icons.wallet,
+                                size: 30,
+                                color: AppColors.darkBlueTheme,
+                              ),
                             ),
                             SizedBox(width: 10),
-                            Icon(
-                              Icons.search,
-                              size: 30,
-                              color: AppColors.darkBlueTheme,
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(context, MaterialPageRoute(builder: (_)=>Search()));
+                              },
+                              child: Icon(
+                                Icons.search,
+                                size: 30,
+                                color: AppColors.darkBlueTheme,
+                              ),
                             ),
                           ],
                         ),
@@ -349,18 +361,25 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                     Row(
-                      children: const [
+                      children:  [
                         Text(
-                          "View all",
+                          "View all ",
                           style: TextStyle(
                             color: AppColors.darkBlueTheme,
                             fontSize: 15,
                           ),
                         ),
-                        Icon(
-                          Icons.arrow_forward_ios_outlined,
-                          color: AppColors.darkBlueTheme,
-                          size: 15,
+                        Container(
+                          padding: EdgeInsets.all(3.0),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: AppColors.darkBlueTheme,
+                          ),
+                          child: Icon(
+                            Icons.arrow_forward_ios_outlined,
+                            color: Colors.white,
+                            size: 12,
+                          ),
                         ),
                       ],
                     )
@@ -753,17 +772,24 @@ class _MyHomePageState extends State<MyHomePage> {
                             }),
                           ),
                           child: const Text(
-                            "View all",
+                            "View all ",
                             style: TextStyle(
                               color: AppColors.darkBlueTheme,
                               fontSize: 15,
                             ),
                           ),
                         ),
-                        const Icon(
-                          Icons.arrow_forward_ios_outlined,
-                          color: AppColors.darkBlueTheme,
-                          size: 15,
+                        Container(
+                          padding: EdgeInsets.all(3.0),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: AppColors.darkBlueTheme,
+                          ),
+                          child: Icon(
+                            Icons.arrow_forward_ios_outlined,
+                            color: Colors.white,
+                            size: 12,
+                          ),
                         ),
                       ],
                     )
