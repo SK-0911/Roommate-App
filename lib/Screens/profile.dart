@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sb/Screens/wallet.dart';
 import 'package:sb/const/CustomColors.dart';
 import 'package:sb/utils/landscape_main.dart';
 
@@ -12,6 +13,8 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
+    int balance=0;
+
     return Scaffold(
       // bottomSheet: BottomSheet(builder: (context) => ,),
       backgroundColor: AppColors.darkBlueTheme,
@@ -55,15 +58,15 @@ class _ProfileState extends State<Profile> {
               ),
               // const SizedBox(height: 20),
 
-              Stack(
-                children: [
-                  Center(
-                    child: Column(
-                      children: [
-                        SizedBox(height: MediaQuery.of(context).size.height*0.1),
-                        Container(
+              Container(
+                // color: Colors.white,
+                child: Center(
+                  child: Column(
+                    children: [
+                      SizedBox(height: MediaQuery.of(context).size.height*0.1),
+                      Container(
                           decoration: const BoxDecoration(
-                            color: Color(0xffffffff),
+                            color: Colors.white,
                             borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(30),
                               topRight: Radius.circular(30),
@@ -82,59 +85,96 @@ class _ProfileState extends State<Profile> {
                               //card view
                               Padding(
                                 padding: EdgeInsets.all(10),
-                                child: Card(
-                                  child: Container(
-                                    height: MediaQuery.of(context).size.height*0.2,
-                                  ),
-                                  color: AppColors.darkBlueTheme,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(30),
+                                child: InkWell(
+                                  onTap: (){
+                                    Navigator.push(context, MaterialPageRoute(builder: (_)=>Wallet()));
+                                  },
+                                  child: Card(
+
+                                    child: Container(
+                                      height: MediaQuery.of(context).size.height*0.2,
+                                      width: MediaQuery.of(context).size.width,
+                                      padding: EdgeInsets.symmetric(vertical: 40, horizontal: 30),
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            "My Wallet",
+                                            style: TextStyle(
+                                              fontSize: 20,
+                                              color: Colors.white
+                                            ),
+                                          ),
+
+                                          const SizedBox(height: 10),
+
+                                          Text(
+                                            "₹ ${balance}",
+                                            style: TextStyle(
+                                                fontSize: 20,
+                                                color: Colors.white
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    color: AppColors.darkBlueTheme,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
                                   ),
                                 ),
                               ),
+                              const SizedBox(height: 5),
+
+                              Container(
+                                padding: EdgeInsets.symmetric(horizontal: 20),
+                                child: Container(
+                                  child: Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      "Account Settings",
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+
                               const SizedBox(height: 15),
+
                               //tiles for navigation
-                              tile("My Account"),
-                              tile("Addresses"),
-                              tile("Transaction History"),
-                              tile("Payments"),
-                              tile("Help & FAQ")
+                              tile("My Account", Icons.person, Color(0xff851C1C) ,Color(0xffFAECEC)),
+                              tile("Addresses", Icons.location_on, Color(0xff169800) ,Color(0xffEEFAEC)),
+                              tile("Transaction History", Icons.history, Color(0xff1C4285) ,Color(0xffECEDFA)),
+                              tile("Payments", Icons.payment, Color(0xffCE6F00) ,Color(0xffFFF2E3)),
+                              tile("Help & FAQ", Icons.help, Color(0xff97A700) ,Color(0xffFCFFDF))
                             ],
                           ),
                         ),
-                      ],
-                    ),
-                  ),
-                  Column(
-                    children: [
-                      // SizedBox(
-                      //   height: MediaQuery.of(context).size.height/0.3,
-                      // ),
-                      Center(
-                        child: Container(
-                          decoration: BoxDecoration(shape: BoxShape.circle,
-                            border: Border.all(width: 1),
-                            color: Colors.white
-                          ),
-                          padding: const EdgeInsets.only(top: 40.0),
-                          child: Icon(Icons.person,size: 100,color: Colors.black,),
-                        ),
-                      )
                     ],
                   ),
-                ],
+                ),
               )
           ],
         ),
       ),
     );
   }
-  tile(String name){
+  tile(String name, IconData tileIcon, Color iconColor, Color iconContainer){
    return Container(
      height: MediaQuery.of(context).size.height*0.08,
      child: ListTile(
 
-        leading: Icon(Icons.chat),
+        leading: Container(
+            padding: EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              color: iconContainer,
+              shape: BoxShape.circle
+            ),
+            child: Icon(tileIcon, color: iconColor,)
+        ),
         title: Text(
           name,
         ),

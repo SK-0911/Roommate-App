@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sb/Screens/laundrybooking.dart';
 import 'package:sb/Screens/profile.dart';
+import 'package:sb/Screens/wallet.dart';
 import 'package:sb/flatListing.dart';
 import 'package:sb/homePage.dart';
 import 'package:sb/laundry.dart';
