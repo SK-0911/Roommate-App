@@ -41,18 +41,27 @@ class _HostelInfoState extends State<HostelInfo> {
             Container(
               width: MediaQuery.of(context).size.width,
               height: 200,
-
               child: AnotherCarousel(
                 images: [
-                  Image.asset(washAndIron, fit: BoxFit.cover,),
-                  Image.asset(chemicalWash, fit: BoxFit.cover,),
-                  Image.asset(dryClean, fit: BoxFit.cover,),
+                  Image.asset(
+                    washAndIron,
+                    fit: BoxFit.cover,
+                  ),
+                  Image.asset(
+                    chemicalWash,
+                    fit: BoxFit.cover,
+                  ),
+                  Image.asset(
+                    dryClean,
+                    fit: BoxFit.cover,
+                  ),
                 ],
                 dotSize: 4.0,
                 dotIncreaseSize: 2.5,
                 dotSpacing: 15.0,
                 boxFit: BoxFit.scaleDown,
-                autoplay: false,
+                autoplay: true,
+                animationDuration: Duration(seconds: 2),
               ),
             ),
 
@@ -69,7 +78,23 @@ class _HostelInfoState extends State<HostelInfo> {
                 ),
               ),
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                caspule("2 BedRoom", Icons.bed,AppColors.darkBlueTheme),
+                caspule("Wifi", Icons.wifi,AppColors.lightblue),
+                caspule("1 BathRoom",Icons.bathtub_outlined,AppColors.lightOrange)
+              ],
+            ),
+            SizedBox(height: 20,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                caspule("Contact No",Icons.call,AppColors.pinkcard),
 
+                caspule("AC Rooms",Icons.ac_unit,AppColors.greenTheme)
+              ],
+            ),
             // Property Details title
             Container(
               padding: EdgeInsets.symmetric(horizontal: 10),
@@ -95,10 +120,12 @@ class _HostelInfoState extends State<HostelInfo> {
                           padding: EdgeInsets.all(5),
                           decoration: BoxDecoration(
                               color: Color(0xffE0EC5656),
-                              shape: BoxShape.circle
-                          ),
-                          child: Icon(Icons.bed, color: Colors.white, size: 20,)
-                      ),
+                              shape: BoxShape.circle),
+                          child: Icon(
+                            Icons.bed,
+                            color: Colors.white,
+                            size: 20,
+                          )),
                       const SizedBox(width: 10),
                       Text(
                         "Name: ",
@@ -115,10 +142,12 @@ class _HostelInfoState extends State<HostelInfo> {
                           padding: EdgeInsets.all(5),
                           decoration: BoxDecoration(
                               color: Color(0xffE56D4C41),
-                              shape: BoxShape.circle
-                          ),
-                          child: Icon(Icons.summarize, color: Colors.white, size: 20,)
-                      ),
+                              shape: BoxShape.circle),
+                          child: Icon(
+                            Icons.summarize,
+                            color: Colors.white,
+                            size: 20,
+                          )),
                       const SizedBox(width: 10),
                       Text(
                         "Overview: ",
@@ -128,7 +157,6 @@ class _HostelInfoState extends State<HostelInfo> {
                       ),
                     ],
                   ),
-
                   const SizedBox(height: 10),
                   Row(
                     children: [
@@ -136,10 +164,12 @@ class _HostelInfoState extends State<HostelInfo> {
                           padding: EdgeInsets.all(5),
                           decoration: BoxDecoration(
                               color: AppColors.lightblue,
-                              shape: BoxShape.circle
-                          ),
-                          child: Icon(Icons.home, color: Colors.white, size: 20,)
-                      ),
+                              shape: BoxShape.circle),
+                          child: Icon(
+                            Icons.home,
+                            color: Colors.white,
+                            size: 20,
+                          )),
                       const SizedBox(width: 10),
                       Text(
                         "Type: ",
@@ -149,7 +179,6 @@ class _HostelInfoState extends State<HostelInfo> {
                       ),
                     ],
                   ),
-
                   const SizedBox(height: 10),
                   Row(
                     children: [
@@ -157,10 +186,12 @@ class _HostelInfoState extends State<HostelInfo> {
                           padding: EdgeInsets.all(5),
                           decoration: BoxDecoration(
                               color: AppColors.lightGreenTheme,
-                              shape: BoxShape.circle
-                          ),
-                          child: Icon(Icons.single_bed, color: Colors.white, size: 20,)
-                      ),
+                              shape: BoxShape.circle),
+                          child: Icon(
+                            Icons.single_bed,
+                            color: Colors.white,
+                            size: 20,
+                          )),
                       const SizedBox(width: 10),
                       Text(
                         "For: ",
@@ -170,18 +201,18 @@ class _HostelInfoState extends State<HostelInfo> {
                       ),
                     ],
                   ),
-
                   const SizedBox(height: 10),
                   Row(
                     children: [
                       Container(
                           padding: EdgeInsets.all(5),
                           decoration: BoxDecoration(
-                              color: Color(0xffED1C24),
-                              shape: BoxShape.circle
-                          ),
-                          child: Icon(Icons.wifi, color: Colors.white, size: 20,)
-                      ),
+                              color: Color(0xffED1C24), shape: BoxShape.circle),
+                          child: Icon(
+                            Icons.wifi,
+                            color: Colors.white,
+                            size: 20,
+                          )),
                       const SizedBox(width: 10),
                       Text(
                         "Amenities: ",
@@ -228,11 +259,12 @@ class _HostelInfoState extends State<HostelInfo> {
                       Container(
                           padding: EdgeInsets.all(5),
                           decoration: BoxDecoration(
-                              color: Color(0xff5929E3),
-                              shape: BoxShape.circle
-                          ),
-                          child: Icon(Icons.place_sharp, color: Colors.white, size: 20,)
-                      ),
+                              color: Color(0xff5929E3), shape: BoxShape.circle),
+                          child: Icon(
+                            Icons.place_sharp,
+                            color: Colors.white,
+                            size: 20,
+                          )),
                       const SizedBox(width: 10),
                       Text(
                         "Near By Places: ",
@@ -243,17 +275,18 @@ class _HostelInfoState extends State<HostelInfo> {
                     ],
                   ),
                   const SizedBox(height: 10),
-
                   Row(
                     children: [
                       Container(
                           padding: EdgeInsets.all(5),
                           decoration: BoxDecoration(
                               color: AppColors.lightblue,
-                              shape: BoxShape.circle
-                          ),
-                          child: Icon(Icons.school, color: Colors.white, size: 20,)
-                      ),
+                              shape: BoxShape.circle),
+                          child: Icon(
+                            Icons.school,
+                            color: Colors.white,
+                            size: 20,
+                          )),
                       const SizedBox(width: 10),
                       Text(
                         "Near By Colleges: ",
@@ -300,11 +333,12 @@ class _HostelInfoState extends State<HostelInfo> {
                       Container(
                           padding: EdgeInsets.all(5),
                           decoration: BoxDecoration(
-                              color: Color(0xff2FA73B),
-                              shape: BoxShape.circle
-                          ),
-                          child: Icon(Icons.rule, color: Colors.white, size: 20,)
-                      ),
+                              color: Color(0xff2FA73B), shape: BoxShape.circle),
+                          child: Icon(
+                            Icons.rule,
+                            color: Colors.white,
+                            size: 20,
+                          )),
                       const SizedBox(width: 10),
                       Text(
                         "Check In Rules: ",
@@ -315,17 +349,17 @@ class _HostelInfoState extends State<HostelInfo> {
                     ],
                   ),
                   const SizedBox(height: 10),
-
                   Row(
                     children: [
                       Container(
                           padding: EdgeInsets.all(5),
                           decoration: BoxDecoration(
-                              color: Color(0xffC48E6A),
-                              shape: BoxShape.circle
-                          ),
-                          child: Icon(Icons.assignment, color: Colors.white, size: 20,)
-                      ),
+                              color: Color(0xffC48E6A), shape: BoxShape.circle),
+                          child: Icon(
+                            Icons.assignment,
+                            color: Colors.white,
+                            size: 20,
+                          )),
                       const SizedBox(width: 10),
                       Text(
                         "Check In Documents: ",
@@ -340,6 +374,26 @@ class _HostelInfoState extends State<HostelInfo> {
             )
           ],
         ),
+      ),
+    );
+  }
+
+  Widget caspule(String Title, IconData icon,Color color) {
+    return Container(
+
+      width: MediaQuery.of(context).size.width / 3.3,
+      padding: EdgeInsets.only(top: 5, bottom: 5, left: 5, right: 5),
+      decoration: BoxDecoration(
+          color: color,
+          // shape: BoxShape.rectangle,
+          borderRadius: BorderRadius.circular(30)),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(icon,color: Colors.white),
+          SizedBox(width: 2,),
+          Text(Title,style: TextStyle(color: Colors.white,height: 1.5)),
+        ],
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:another_carousel_pro/another_carousel_pro.dart';
 import 'package:flutter/material.dart';
+import 'package:sb/hostelInfo.dart';
 import 'package:sb/utils/landscape_main.dart';
 import 'const/imagename.dart';
 import 'const/screen.dart';
@@ -197,15 +198,20 @@ class _ListingState extends State<Listing> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5),
                       ),
-                      child: Container(
-                        padding: EdgeInsets.symmetric(vertical: 15),
-                        child: const Center(
-                          child: Text(
-                            "RESERVE NOW",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w900,
+                      child: InkWell(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (_)=>HostelInfo()));
+                        },
+                        child: Container(
+                          padding: EdgeInsets.symmetric(vertical: 15),
+                          child: const Center(
+                            child: Text(
+                              "RESERVE NOW",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w900,
+                              ),
                             ),
                           ),
                         ),

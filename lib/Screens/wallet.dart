@@ -50,9 +50,6 @@ class _WalletState extends State<Wallet> {
 
             Stack(
               children: [
-                DiagonalContainer(child: SizedBox(),
-                color: Colors.blueAccent,
-                height: 300),
                 Container(
                   width: MediaQuery.of(context).size.width,
                   margin: EdgeInsets.symmetric(horizontal: 10),
@@ -230,7 +227,7 @@ class _WalletState extends State<Wallet> {
                       fontSize: 20,
                     ),
                   ),
-                  
+
                   Icon(
                       Icons.wallet_sharp,
                       size: 25,

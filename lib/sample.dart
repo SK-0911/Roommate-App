@@ -1,53 +1,39 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-class DiagonalContainer extends StatelessWidget {
-  final Widget child;
-  final double height;
-  final Color color;
-
-  DiagonalContainer({required this.child, required this.height, this.color = Colors.blue});
-
+class TriangleWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height,
-      child: Stack(
-        children: [
-          CustomPaint(
-            painter: _DiagonalPainter(color),
-            child: Container(),
-          ),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 16.0),
-            alignment: Alignment.center,
-            child: child,
-          ),
-        ],
+      alignment: Alignment.center,
+      child: CustomPaint(
+        painter: TrianglePainter(130), // Set the maximum height here
+        size: Size(200, 200), // Set the size of the container accordingly
       ),
     );
   }
 }
+class TrianglePainter extends CustomPainter {
+  final double maxHeight;
 
-class _DiagonalPainter extends CustomPainter {
-  final Color color;
-
-  _DiagonalPainter(this.color);
+  TrianglePainter(this.maxHeight);
 
   @override
   void paint(Canvas canvas, Size size) {
-    Paint paint = Paint()..color = color;
-    Path path = Path();
+    Paint paint = Paint()
+      ..color = Colors.blue
+      ..style = PaintingStyle.fill;
 
-    path.lineTo(0, size.height);
-    path.lineTo(size.width, size.height - size.width * 0.4);
-    path.lineTo(size.width, 0);
+    Path path = Path();
+    path.moveTo(0, size.height);
+    path.lineTo(size.width, size.height);
+    path.lineTo(size.width, size.height - maxHeight);
     path.close();
 
     canvas.drawPath(path, paint);
   }
 
   @override
-  bool shouldRepaint(CustomPainter oldDelegate) {
-    return true;
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return false;
   }
 }
