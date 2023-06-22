@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sb/const/CustomColors.dart';
+import 'package:sb/const/imagename.dart';
 import 'package:sb/utils/landscape_main.dart';
 import 'package:sb/utils/landscape_main.dart';
 
@@ -13,7 +14,6 @@ class Wallet extends StatefulWidget {
 }
 
 class _WalletState extends State<Wallet> {
-
   int balance=0;
   @override
   Widget build(BuildContext context) {
@@ -46,30 +46,56 @@ class _WalletState extends State<Wallet> {
               ),
             ),
 
-            const SizedBox(height: 40),
+            // const SizedBox(height: 10),
+
+            Center(
+                child: Row(
+                  children: [
+                    SizedBox(width: MediaQuery.of(context).size.width/2.3),
+                    Container(
+                        width: MediaQuery.of(context).size.width/2.5,
+                        child: Image.asset(
+                          cash,
+                          fit: BoxFit.cover,
+                        )
+                    ),
+                  ],
+                )
+            ),
 
             Stack(
               children: [
                 Container(
                   width: MediaQuery.of(context).size.width,
-                  margin: EdgeInsets.symmetric(horizontal: 10),
+                  margin: EdgeInsets.symmetric(horizontal: 25),
                   decoration: BoxDecoration(
                     color: AppColors.darkBlueTheme,
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+                  padding: EdgeInsets.only(top: 20, bottom: 20, left: 30, right: 0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'Wallet',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 30,
-                          fontWeight: FontWeight.w900,
-                        ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Wallet',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 30,
+                              fontWeight: FontWeight.w900,
+                            ),
+                          ),
+
+                          Container(
+                            height: 50,
+
+                            child: Image.asset(button, fit: BoxFit.cover,),
+                          )
+                        ],
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 10),
                       Text(
                         "Current Balance",
                         style: TextStyle(
@@ -239,29 +265,453 @@ class _WalletState extends State<Wallet> {
 
             Container(
               height: 200,
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.symmetric(vertical: 20),
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  // Container(
-                  //   color: Color(0xffED1C24),
-                  //   child: Column(
-                  //     children: [
-                  //       Row(
-                  //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //         children: [
-                  //           Icon(Icons.sim_card, color: Color(0xffF6C859),size: 30,),
-                  //           Text("VISA")
-                  //         ],
-                  //       )
-                  //     ],
-                  //   ),
-                  // )
+                  const SizedBox(width: 20),
+
+                  AspectRatio(
+                    aspectRatio: 5/3,
+                    child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        gradient: LinearGradient(
+                          colors: [
+                            Color(0xFF0000FF),
+                            Color(0XFF377CFF),
+                          ]
+                        )
+                      ),
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Icon(
+                                Icons.wifi,
+                                color: Colors.white,
+                                size: 30,
+                              ),
+                              Text(
+                                "VISA",
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  color: Colors.white
+                                ),
+                              )
+                            ],
+                          ),
+
+                          const SizedBox(height: 15),
+
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              "**** **** **** 2345",
+                              style: TextStyle(
+                                fontSize: 24,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600
+                              ),
+                            ),
+                          ),
+
+                          const SizedBox(height: 15),
+
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                child: Text(
+                                  "Card Holder Name",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 8
+                                  ),
+                                ),
+                              ),
+
+                              Container(
+                                child: Text(
+                                  "Expiry Date",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 8
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+
+                          SizedBox(height: 5),
+
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                child: Text(
+                                  "Mayank Sharma",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold
+                                  ),
+                                ),
+                              ),
+
+                              Container(
+                                child: Text(
+                                  "02/03",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(width: 15),
+
+                  AspectRatio(
+                    aspectRatio: 5/3,
+                    child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          gradient: LinearGradient(
+                              colors: [
+                                Color(0xFFFFA351),
+                                Color(0xFFF83D34),
+                              ]
+                          )
+                      ),
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Icon(
+                                Icons.wifi,
+                                color: Colors.white,
+                                size: 30,
+                              ),
+                              Text(
+                                "VISA",
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    color: Colors.white
+                                ),
+                              )
+                            ],
+                          ),
+
+                          const SizedBox(height: 15),
+
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              "**** **** **** 2345",
+                              style: TextStyle(
+                                  fontSize: 24,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600
+                              ),
+                            ),
+                          ),
+
+                          const SizedBox(height: 15),
+
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                child: Text(
+                                  "Card Holder Name",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 8
+                                  ),
+                                ),
+                              ),
+
+                              Container(
+                                child: Text(
+                                  "Expiry Date",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 8
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+
+                          SizedBox(height: 5),
+
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                child: Text(
+                                  "Mayank Sharma",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold
+                                  ),
+                                ),
+                              ),
+
+                              Container(
+                                child: Text(
+                                  "02/03",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(width: 15),
+
+                  AspectRatio(
+                    aspectRatio: 5/3,
+                    child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          gradient: LinearGradient(
+                              colors: [
+                                Color(0xFF990099),
+                                Color(0xFF660066),
+                              ]
+                          )
+                      ),
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Icon(
+                                Icons.wifi,
+                                color: Colors.white,
+                                size: 30,
+                              ),
+                              Text(
+                                "VISA",
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    color: Colors.white
+                                ),
+                              )
+                            ],
+                          ),
+
+                          const SizedBox(height: 15),
+
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              "**** **** **** 2345",
+                              style: TextStyle(
+                                  fontSize: 24,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600
+                              ),
+                            ),
+                          ),
+
+                          const SizedBox(height: 15),
+
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                child: Text(
+                                  "Card Holder Name",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 8
+                                  ),
+                                ),
+                              ),
+
+                              Container(
+                                child: Text(
+                                  "Expiry Date",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 8
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+
+                          SizedBox(height: 5),
+
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                child: Text(
+                                  "Mayank Sharma",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold
+                                  ),
+                                ),
+                              ),
+
+                              Container(
+                                child: Text(
+                                  "02/03",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(width: 15),
+
+                  AspectRatio(
+                    aspectRatio: 5/3,
+                    child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          gradient: LinearGradient(
+                              colors: [
+                                //#ED1C24, #4F339A
+                                Color(0xFFED1C24),
+                                Color(0xFF4F339A),
+                              ]
+                          )
+                      ),
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Icon(
+                                Icons.wifi,
+                                color: Colors.white,
+                                size: 30,
+                              ),
+                              Text(
+                                "VISA",
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    color: Colors.white
+                                ),
+                              )
+                            ],
+                          ),
+
+                          const SizedBox(height: 15),
+
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              "**** **** **** 2345",
+                              style: TextStyle(
+                                  fontSize: 24,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600
+                              ),
+                            ),
+                          ),
+
+                          const SizedBox(height: 15),
+
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                child: Text(
+                                  "Card Holder Name",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 8
+                                  ),
+                                ),
+                              ),
+
+                              Container(
+                                child: Text(
+                                  "Expiry Date",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 8
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+
+                          SizedBox(height: 5),
+
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                child: Text(
+                                  "Mayank Sharma",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold
+                                  ),
+                                ),
+                              ),
+
+                              Container(
+                                child: Text(
+                                  "02/03",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(width: 20),
                 ],
               ),
             ),
 
-            const SizedBox(height: 30),
+            const SizedBox(height: 10),
 
             Container(
               padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),

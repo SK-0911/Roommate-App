@@ -78,15 +78,18 @@ class _HostelInfoState extends State<HostelInfo> {
                 ),
               ),
             ),
+
+            SizedBox(height: 15),
+
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                caspule("2 BedRoom", Icons.bed,AppColors.darkBlueTheme),
+                caspule("2 Bedroom", Icons.bed,AppColors.darkBlueTheme),
                 caspule("Wifi", Icons.wifi,AppColors.lightblue),
-                caspule("1 BathRoom",Icons.bathtub_outlined,AppColors.lightOrange)
+                caspule("1 Bathroom",Icons.bathtub_outlined,AppColors.lightOrange)
               ],
             ),
-            SizedBox(height: 20,),
+            SizedBox(height: 10,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -95,6 +98,17 @@ class _HostelInfoState extends State<HostelInfo> {
                 caspule("AC Rooms",Icons.ac_unit,AppColors.greenTheme)
               ],
             ),
+
+            SizedBox(height: 15),
+
+            // Divider
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Divider(
+                thickness: 2,
+              ),
+            ),
+
             // Property Details title
             Container(
               padding: EdgeInsets.symmetric(horizontal: 10),
@@ -381,8 +395,8 @@ class _HostelInfoState extends State<HostelInfo> {
   Widget caspule(String Title, IconData icon,Color color) {
     return Container(
 
-      width: MediaQuery.of(context).size.width / 3.3,
-      padding: EdgeInsets.only(top: 5, bottom: 5, left: 5, right: 5),
+      width: MediaQuery.of(context).size.width / 3.5,
+      padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
           color: color,
           // shape: BoxShape.rectangle,
@@ -390,9 +404,9 @@ class _HostelInfoState extends State<HostelInfo> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon,color: Colors.white),
+          Icon(icon,color: Colors.white, size: 15,),
           SizedBox(width: 2,),
-          Text(Title,style: TextStyle(color: Colors.white,height: 1.5)),
+          Text(Title,style: TextStyle(color: Colors.white, fontSize: 12)),
         ],
       ),
     );
