@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sb/main.dart';
 import 'package:sb/login.dart';
 
+import 'const/imagename.dart';
 import 'homePage.dart';
 
 class SignUp extends StatelessWidget {
@@ -20,18 +21,12 @@ class SignUp extends StatelessWidget {
           child: Center(
             child: Column(
                 children: [
-                  const SizedBox(height: 50),
-                  const Text(
-                    "Service Box",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Apricot',
-                    ),
+                  const SizedBox(height: 30),
+                  Center(
+                      child: Image.asset(sbText, fit: BoxFit.cover, width: 200,)
                   ),
 
-                  const SizedBox(height: 80),
+                  const SizedBox(height: 60),
 
                   Column(
                     // mainAxisAlignment: MainAxisAlignment.center,
@@ -222,7 +217,7 @@ class SignUp extends StatelessWidget {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context){
-                                      return const Login();
+                                      return Login();
                                     }
                                 ),
                               ),

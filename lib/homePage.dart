@@ -194,11 +194,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                     fit: BoxFit.fill,
                                     height: 120,
                                   ),
-                                  const ListTile(
-                                    title: Text("Hostel",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+                                  ListTile(
+                                    title: const Text("Hostel",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
                                     // subtitle: Text('Card Subtitle'),
                                   ),
-
                                 ],
                               ),
                             ),

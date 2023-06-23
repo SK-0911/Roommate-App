@@ -254,15 +254,12 @@ class _WalletState extends State<Wallet> {
                     ),
                   ),
 
-                  Icon(
-                      Icons.wallet_sharp,
-                      size: 25,
-                      color: Colors.white,
-                  ),
+                  Image.asset(addCard, fit: BoxFit.cover, height: 30,),
                 ],
               ),
             ),
 
+            // Cards
             Container(
               height: 200,
               padding: EdgeInsets.symmetric(vertical: 20),
@@ -274,7 +271,7 @@ class _WalletState extends State<Wallet> {
                   AspectRatio(
                     aspectRatio: 5/3,
                     child: Container(
-                      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         gradient: LinearGradient(
@@ -289,18 +286,8 @@ class _WalletState extends State<Wallet> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Icon(
-                                Icons.wifi,
-                                color: Colors.white,
-                                size: 30,
-                              ),
-                              Text(
-                                "VISA",
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  color: Colors.white
-                                ),
-                              )
+                              Image.asset(chip, fit: BoxFit.cover, width: 40,),
+                              Image.asset(mastercard, fit: BoxFit.cover, width: 50,)
                             ],
                           ),
 
@@ -388,8 +375,8 @@ class _WalletState extends State<Wallet> {
                           borderRadius: BorderRadius.circular(20),
                           gradient: LinearGradient(
                               colors: [
-                                Color(0xFFFFA351),
                                 Color(0xFFF83D34),
+                                Color(0xFFFFA351),
                               ]
                           )
                       ),
@@ -398,18 +385,8 @@ class _WalletState extends State<Wallet> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Icon(
-                                Icons.wifi,
-                                color: Colors.white,
-                                size: 30,
-                              ),
-                              Text(
-                                "VISA",
-                                style: TextStyle(
-                                    fontSize: 15,
-                                    color: Colors.white
-                                ),
-                              )
+                              Image.asset(chip, fit: BoxFit.cover, width: 40,),
+                              Image.asset(visa, fit: BoxFit.cover, width: 50, color: Colors.white,)
                             ],
                           ),
 
@@ -507,18 +484,8 @@ class _WalletState extends State<Wallet> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Icon(
-                                Icons.wifi,
-                                color: Colors.white,
-                                size: 30,
-                              ),
-                              Text(
-                                "VISA",
-                                style: TextStyle(
-                                    fontSize: 15,
-                                    color: Colors.white
-                                ),
-                              )
+                              Image.asset(chip, fit: BoxFit.cover, width: 40,),
+                              Image.asset(mastercard, fit: BoxFit.cover, width: 50,)
                             ],
                           ),
 
@@ -617,18 +584,8 @@ class _WalletState extends State<Wallet> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Icon(
-                                Icons.wifi,
-                                color: Colors.white,
-                                size: 30,
-                              ),
-                              Text(
-                                "VISA",
-                                style: TextStyle(
-                                    fontSize: 15,
-                                    color: Colors.white
-                                ),
-                              )
+                              Image.asset(chip, fit: BoxFit.cover, width: 40,),
+                              Image.asset(visa, fit: BoxFit.cover, width: 50, color: Colors.white,)
                             ],
                           ),
 
@@ -723,11 +680,84 @@ class _WalletState extends State<Wallet> {
                     fontSize: 20,
                   ),
               ),
-            )
+            ),
+
+            SizedBox(height: 20),
+
+            Container(
+              height: 200,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  const SizedBox(width: 20),
+                  offer(),
+                  const SizedBox(width: 10),
+                  offer(),
+                  const SizedBox(width: 10),
+                  offer(),
+                  const SizedBox(width: 20),
+                ],
+              ),
+            ),
+
+            const SizedBox(height: 20),
           ],
         ),
       ) ,
     );
   }
+
+  offer() => AspectRatio(
+    aspectRatio: 4.5/3,
+    child: Container(
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: AppColors.darkBlueTheme,
+      ),
+      child: Column(
+        children:  [
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              "Get 20% Cashback",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold
+              ),
+            ),
+          ),
+
+          SizedBox(height: 5),
+
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              "on using HDFC Bank Cards",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 15,
+              ),
+            ),
+          ),
+
+          SizedBox(height: 40),
+
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              "*terms and conditions apply",
+              style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 10,
+                  fontWeight: FontWeight.bold
+              ),
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
 
 }
