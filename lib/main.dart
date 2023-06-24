@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sb/Screens/laundrybooking.dart';
+import 'package:sb/Screens/otp.dart';
 import 'package:sb/Screens/profile.dart';
 import 'package:sb/Screens/wallet.dart';
 import 'package:sb/flatListing.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Login(),
+      home: Splash(),
       debugShowCheckedModeBanner: false,
     );
   }

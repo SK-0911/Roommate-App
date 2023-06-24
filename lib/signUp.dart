@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sb/Screens/otp.dart';
 import 'package:sb/main.dart';
 import 'package:sb/login.dart';
 
@@ -71,6 +72,7 @@ class SignUp extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 35.0),
                         child: TextField(
+                            keyboardType: TextInputType.phone,
                             controller: PhController,
                             decoration: InputDecoration(
                                 enabledBorder: OutlineInputBorder(
@@ -95,6 +97,7 @@ class SignUp extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 35.0),
                         child: TextField(
+                            keyboardType: TextInputType.emailAddress,
                             controller: EmailController,
                             decoration: InputDecoration(
                                 enabledBorder: OutlineInputBorder(
@@ -122,9 +125,7 @@ class SignUp extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                               builder: (context){
-                                return MyHomePage(
-                                  title: 'Service Box',
-                                );
+                                return Otp();
                               }
                           ),
                         ),

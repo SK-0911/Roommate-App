@@ -17,11 +17,11 @@ class _SplashState extends State<Splash> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    // _navigatetohome();
+    _navigatetohome();
   }
 
   _navigatetohome()async {
-    await Future.delayed(Duration(seconds: 1), (){});
+    await Future.delayed(Duration(seconds: 3), (){});
     Navigator.pushReplacement(context,
         MaterialPageRoute(
             builder: (context)=>Login()
@@ -36,7 +36,7 @@ class _SplashState extends State<Splash> {
         color: Colors.white,
         child: Center(
           child: Container(
-            child: Image.asset(serviceBoxIcon),
+            child: Image.asset(serviceBoxIcon, fit: BoxFit.cover, height: 200,),
           ),
         ),
       ),
