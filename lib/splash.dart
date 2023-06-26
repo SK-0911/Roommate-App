@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:sb/const/CustomColors.dart';
+import 'package:ServiceBox/const/CustomColors.dart';
 import '../const/imagename.dart';
-import 'package:sb/main.dart';
-import 'package:sb/login.dart';
+import 'package:ServiceBox/main.dart';
+import 'package:ServiceBox/login.dart';
 
 class Splash extends StatefulWidget {
   const Splash({Key? key}) : super(key: key);

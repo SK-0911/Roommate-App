@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sb/Screens/laundrybooking.dart';
-import 'package:sb/const/imagename.dart';
+import 'package:ServiceBox/Screens/laundrybooking.dart';
+import 'package:ServiceBox/const/imagename.dart';
 import 'const/screen.dart';
 import 'const/CustomColors.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -73,8 +73,8 @@ class _LaundryState extends State<Laundry> {
   Widget build(BuildContext context) {
     return  Scaffold(
       body: SafeArea(
-        child: ListView(
-          scrollDirection: Axis.vertical,
+        child: Column(
+          // scrollDirection: Axis.vertical,
           children: [
             // Top Green Section
             Container(
@@ -304,9 +304,10 @@ class _LaundryState extends State<Laundry> {
                 ),
             ),
 
-            const SizedBox(height: 30),
+            Spacer(),
 
             Container(
+              alignment: Alignment.bottomCenter,
               padding: EdgeInsets.symmetric(horizontal: 45),
               child: Center(
                 child: SizedBox(
@@ -322,6 +323,7 @@ class _LaundryState extends State<Laundry> {
                     dotIncreaseSize: 2.5,
                     dotSpacing: 15.0,
                     boxFit: BoxFit.scaleDown,
+                    showIndicator: false,
                   ),
                 ),
               ),
@@ -332,48 +334,6 @@ class _LaundryState extends State<Laundry> {
       ),
     );
   }
-
-  // Categorys(String title, IconData iconData, Color bgColor) => InkWell(
-  //   onTap: (){
-  //     Navigator.push(context, MaterialPageRoute(builder: (_)=>bookingDetails(washAndIron,title)));
-  //   },
-  //   child: Container(
-  //     height: 200,
-  //     width: 200,
-  //     padding: const EdgeInsets.only(top: 10, left: 10, right: 10, bottom: 10),
-  //     decoration: BoxDecoration(
-  //         color: bgColor,
-  //         borderRadius: BorderRadius.circular(10),
-  //         boxShadow: [
-  //           BoxShadow(
-  //               // offset: const Offset(0, 5),
-  //               color: Colors.black.withOpacity(.6),
-  //               spreadRadius: 1,
-  //               blurRadius: 5
-  //           )
-  //         ]
-  //     ),
-  //     child: Column(
-  //       mainAxisAlignment: MainAxisAlignment.start,
-  //       children: [
-  //         const SizedBox(height: 20),
-  //         Text(
-  //             title,
-  //             style: const TextStyle(
-  //               fontSize: 18,
-  //               color: Colors.white,
-  //               fontWeight: FontWeight.bold
-  //             )
-  //         ),
-  //         const SizedBox(height: 8),
-  //         Icon(
-  //             iconData,
-  //             color: AppColors.darkBlueTheme, size: 30,
-  //         ),
-  //       ],
-  //     ),
-  //   ),
-  // );
 
   confirm(){
     return AlertDialog(

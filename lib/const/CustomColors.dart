@@ -12,4 +12,9 @@ class AppColors{
   static const lightgreen = Color(0xffd9ffd9);
   static const lightblueT = Color(0xff68e1f1);
   static const greenTheme  = Color(0xff209377);
+  static const home3  = Color(0xff126b59);
+  static const home1st  = Color(0xff1d5dba);
+  static const home4st  = Color(0xFF1C335D);
+  static const home2st  = Color(0xFC3B693F);
+
 }

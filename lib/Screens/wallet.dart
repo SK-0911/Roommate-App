@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:sb/const/CustomColors.dart';
-import 'package:sb/const/imagename.dart';
-import 'package:sb/utils/landscape_main.dart';
-import 'package:sb/utils/landscape_main.dart';
+import 'package:ServiceBox/const/CustomColors.dart';
+import 'package:ServiceBox/const/imagename.dart';
+import 'package:ServiceBox/utils/landscape_main.dart';
+import 'package:ServiceBox/utils/landscape_main.dart';
 
-import '../sample.dart';
+// import '../sample.dart';
 
 class Wallet extends StatefulWidget {
   const Wallet({Key? key}) : super(key: key);

@@ -1,7 +1,7 @@
 import 'package:another_carousel_pro/another_carousel_pro.dart';
 import 'package:flutter/material.dart';
-import 'package:sb/const/CustomColors.dart';
-import 'package:sb/utils/landscape_main.dart';
+import 'package:ServiceBox/const/CustomColors.dart';
+import 'package:ServiceBox/utils/landscape_main.dart';
 
 import 'const/imagename.dart';
 
@@ -85,8 +85,8 @@ class _HostelInfoState extends State<HostelInfo> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 caspule("2 Bedroom", Icons.bed,AppColors.darkBlueTheme),
-                caspule("Wifi", Icons.wifi,AppColors.lightblue),
-                caspule("1 Bathroom",Icons.bathtub_outlined,AppColors.lightOrange)
+                caspule("Wifi", Icons.wifi,AppColors.home3),
+                caspule("1 Bathroom",Icons.bathtub_outlined,AppColors.home1st)
               ],
             ),
             SizedBox(height: 10,),
@@ -94,8 +94,7 @@ class _HostelInfoState extends State<HostelInfo> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 caspule("Contact No",Icons.call,AppColors.pinkcard),
-
-                caspule("AC Rooms",Icons.ac_unit,AppColors.greenTheme)
+                caspule("AC Rooms",Icons.ac_unit,AppColors.home2st)
               ],
             ),
 

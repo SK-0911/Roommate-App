@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sb/main.dart';
-import 'package:sb/login.dart';
+import 'package:ServiceBox/main.dart';
+import 'package:ServiceBox/login.dart';
 
 import 'const/imagename.dart';
 import 'homePage.dart';

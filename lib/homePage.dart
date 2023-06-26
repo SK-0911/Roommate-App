@@ -2,14 +2,14 @@ import 'dart:developer';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:sb/Screens/profile.dart';
-import 'package:sb/Screens/search.dart';
-import 'package:sb/Screens/wallet.dart';
-import 'package:sb/const/imagename.dart';
-import 'package:sb/flatListing.dart';
-import 'package:sb/laundry.dart';
-import 'package:sb/pgListing.dart';
-import 'package:sb/utils/landscape_main.dart';
+import 'package:ServiceBox/Screens/profile.dart';
+import 'package:ServiceBox/Screens/search.dart';
+import 'package:ServiceBox/Screens/wallet.dart';
+import 'package:ServiceBox/const/imagename.dart';
+import 'package:ServiceBox/flatListing.dart';
+import 'package:ServiceBox/laundry.dart';
+import 'package:ServiceBox/pgListing.dart';
+import 'package:ServiceBox/utils/landscape_main.dart';
 import 'hostelListing.dart';
 import 'const/CustomColors.dart';
 import 'const/screen.dart';
@@ -116,7 +116,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         text:
                         const TextSpan(
                           style:  TextStyle (
-                            fontSize:  55,
+                            fontSize:  35,
                             fontWeight: FontWeight.w600,
                             // height:  150,
                             color:  Color(0xff000000),
@@ -126,7 +126,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               text:  'Namaste',
                               style:  TextStyle (
                                 // 'Poppins',
-                                fontSize:  35,
+                                fontSize:  25,
                                 fontWeight:  FontWeight.w600,
                                 // height:  150,
                                 color:  Color(0xff000000),
@@ -136,7 +136,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               text:  '\nMayank',
                               style:  TextStyle (
                                 // 'Poppins',
-                                fontSize:  35,
+                                fontSize:  25,
                                 fontWeight:  FontWeight.w600,
                                 // height:  150,
                                 color:  AppColors.lightBlueTheme,
@@ -190,9 +190,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
                               child: Stack(
                                 children: [
-                                  Image.asset(hostelcard,
-                                    fit: BoxFit.fill,
-                                    height: 120,
+                                  Container(
+                                    width: Screen.isPortrait(context)
+                                        ? MediaQuery.of(context).size.width / 2.1
+                                        : MediaQuery.of(context).size.width / 4,
+
+                                    child: Image.asset(hostelcard,
+                                      fit: BoxFit.fill,
+                                      height: 120,
+                                    ),
                                   ),
                                   ListTile(
                                     title: const Text("Hostel",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
@@ -220,9 +226,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
                               child: Stack(
                                 children: [
-                                  Image.asset(cabcard,
-                                  fit: BoxFit.fill,
-                                  height: 120,
+                                  Container(
+                                    width: Screen.isPortrait(context)
+                                        ? MediaQuery.of(context).size.width / 2.1
+                                        : MediaQuery.of(context).size.width / 4,
+                                    child: Image.asset(cabcard,
+                                    fit: BoxFit.fill,
+                                    height: 120,
+                                    ),
                                   ),
                                   ListTile(
                                     title: Text("Cab",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
@@ -258,9 +269,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
                               child: Stack(
                                 children: [
-                                  Image.asset(Flatcard,
-                                    fit: BoxFit.fill,
-                                    height: 100,
+                                  Container(
+                                    width: Screen.isPortrait(context)
+                                        ? MediaQuery.of(context).size.width / 3.2
+                                        : MediaQuery.of(context).size.width / 4,
+                                    child: Image.asset(Flatcard,
+                                      fit: BoxFit.fill,
+                                      height: 100,
+                                    ),
                                   ),
                                   ListTile(
                                     title: Text("Flat",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
@@ -291,9 +307,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
                                 child: Stack(
                                   children: [
-                                    Image.asset(Pgcard,
-                                      fit: BoxFit.fill,
-                                      height: 100,
+                                    Container(
+                                      width: Screen.isPortrait(context)
+                                          ? MediaQuery.of(context).size.width / 3.2
+                                          : MediaQuery.of(context).size.width / 4,
+                                      child: Image.asset(Pgcard,
+                                        fit: BoxFit.fill,
+                                        height: 100,
+                                      ),
                                     ),
                                     ListTile(
                                       title: Text("PG",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
@@ -321,19 +342,22 @@ class _MyHomePageState extends State<MyHomePage> {
                                 borderRadius: BorderRadius.circular(
                                     40.0), // Adjust the value for desired curve
                               ),
-                              child: Container(
-                                child: Stack(
-                                  children: [
-                                    Image.asset(Laundrycard,
+                              child: Stack(
+                                children: [
+                                  Container(
+                                    width: Screen.isPortrait(context)
+                                        ? MediaQuery.of(context).size.width / 3.2
+                                        : MediaQuery.of(context).size.width / 4,
+                                    child: Image.asset(Laundrycard,
                                       fit: BoxFit.fill,
                                       height: 100,
                                     ),
-                                    ListTile(
-                                      title: Text("Laundry",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
-                                        // subtitle: Text('Card Subtitle'),
-                                      ),),
-                                  ],
-                                ),
+                                  ),
+                                  ListTile(
+                                    title: Text("Laundry",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                                      // subtitle: Text('Card Subtitle'),
+                                    ),),
+                                ],
                               ),
                             ),
                           ),
@@ -1115,14 +1139,14 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
 
               SizedBox(
-                height: 20,
+                height: 9,
               ),
-              // Text(
-              //   title,
-              //   style: TextStyle(
-              //       fontSize: 12,
-              //       color: _selectedIndex == index ? Colors.blue : Colors.grey),
-              // )
+              Text(
+                title,
+                style: TextStyle(
+                    fontSize: 12,
+                    color: _selectedIndex == index ? Colors.blue : Colors.grey),
+              )
             ],
           ),
         ),
