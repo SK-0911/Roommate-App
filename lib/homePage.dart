@@ -126,7 +126,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               text:  'Namaste',
                               style:  TextStyle (
                                 // 'Poppins',
-                                fontSize:  25,
+                                fontSize:  45,
                                 fontWeight:  FontWeight.w600,
                                 // height:  150,
                                 color:  Color(0xff000000),
@@ -136,7 +136,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               text:  '\nMayank',
                               style:  TextStyle (
                                 // 'Poppins',
-                                fontSize:  25,
+                                fontSize:  45,
                                 fontWeight:  FontWeight.w600,
                                 // height:  150,
                                 color:  AppColors.lightBlueTheme,
@@ -1093,7 +1093,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 _bottomIconsStyle(context, 1, 'My Booking'),
                 _bottomIconsStyle(context, 2, 'Offers'),
                 // const SizedBox(width: 20),
-                _bottomIconsStyle(context, 3, 'more'),
+                _bottomIconsStyle(context, 3, 'More'),
               ],
             ),
           ),

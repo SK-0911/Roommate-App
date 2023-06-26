@@ -1,3 +1,4 @@
+import 'package:ServiceBox/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:ServiceBox/login.dart';
 
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Login(),
+      home: Splash(),
       debugShowCheckedModeBanner: false,
     );
   }
