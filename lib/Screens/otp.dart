@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sb/const/CustomColors.dart';
-import 'package:sb/const/imagename.dart';
+import '/const/CustomColors.dart';
+import '/const/imagename.dart';
 
 class Otp extends StatefulWidget {
   const Otp({Key? key}) : super(key: key);

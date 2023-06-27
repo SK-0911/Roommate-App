@@ -2,8 +2,8 @@ import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:sb/Screens/clothingList.dart';
-import 'package:sb/const/CustomColors.dart';
+import 'package:ServiceBox/Screens/clothingList.dart';
+import 'package:ServiceBox/const/CustomColors.dart';
 
 import '../const/customdialog.dart';
 import '../const/imagename.dart';

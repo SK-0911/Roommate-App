@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sb/Screens/wallet.dart';
-import 'package:sb/const/CustomColors.dart';
-import 'package:sb/utils/landscape_main.dart';
+import 'package:ServiceBox/Screens/wallet.dart';
+import 'package:ServiceBox/const/CustomColors.dart';
+import 'package:ServiceBox/utils/landscape_main.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -65,6 +65,7 @@ class _ProfileState extends State<Profile> {
                     children: [
                       SizedBox(height: MediaQuery.of(context).size.height*0.1),
                       Container(
+                        height: MediaQuery.of(context).size.height,
                           decoration: const BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.only(

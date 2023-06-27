@@ -1,7 +1,8 @@
 import 'package:another_carousel_pro/another_carousel_pro.dart';
 import 'package:flutter/material.dart';
-import 'package:sb/const/CustomColors.dart';
-import 'package:sb/utils/landscape_main.dart';
+import 'package:ServiceBox/const/CustomColors.dart';
+import 'package:ServiceBox/utils/landscape_main.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 import 'const/imagename.dart';
 
@@ -65,7 +66,82 @@ class _HostelInfoState extends State<HostelInfo> {
               ),
             ),
 
+            const SizedBox(height: 15,),
+
+            // Location
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      RatingBar(
+                          allowHalfRating: false,
+                          itemSize: 25,
+                          itemCount: 5,
+                          initialRating: 4,
+                          ratingWidget: RatingWidget(
+                            full: Icon(Icons.star, color: Colors.yellow[700],),
+                            empty: Icon(Icons.star_border_outlined, color: Colors.yellow[700]),
+                              half: Icon(Icons.star_half, color: Colors.yellow[700])
+                          ), onRatingUpdate: (double value) {}
+,                  ),
+
+                      Text(
+                        "₹ 4,000",
+                        style: TextStyle(
+                            color: AppColors.darkBlueTheme,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold
+                        ),
+                      )
+                    ],
+                  ),
+
+                  const SizedBox(height: 5),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Icon(Icons.location_on_outlined, size: 20,),
+                          const SizedBox(width: 5),
+                          Text(
+                              "Kharghar, Navi Mumbai",
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold
+                              ),
+                          ),
+                        ],
+                      ),
+
+                      Text(
+                        "/month",
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.grey[700],
+                          fontWeight: FontWeight.w300
+                        ),
+                      )
+                    ],
+                  ),
+                ],
+              ),
+            ),
+
             const SizedBox(height: 15),
+
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Divider(
+                thickness: 2,
+              ),
+            ),
+
+
             // Festures title
             Container(
               padding: EdgeInsets.symmetric(horizontal: 10),
@@ -85,8 +161,8 @@ class _HostelInfoState extends State<HostelInfo> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 caspule("2 Bedroom", Icons.bed,AppColors.darkBlueTheme),
-                caspule("Wifi", Icons.wifi,AppColors.lightblue),
-                caspule("1 Bathroom",Icons.bathtub_outlined,AppColors.lightOrange)
+                caspule("Wifi", Icons.wifi,AppColors.home3),
+                caspule("1 Bathroom",Icons.bathtub_outlined,AppColors.home1st)
               ],
             ),
             SizedBox(height: 10,),
@@ -94,8 +170,7 @@ class _HostelInfoState extends State<HostelInfo> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 caspule("Contact No",Icons.call,AppColors.pinkcard),
-
-                caspule("AC Rooms",Icons.ac_unit,AppColors.greenTheme)
+                caspule("AC Rooms",Icons.ac_unit,AppColors.home2st)
               ],
             ),
 

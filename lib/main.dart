@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:sb/Screens/laundrybooking.dart';
-import 'package:sb/Screens/otp.dart';
-import 'package:sb/Screens/profile.dart';
-import 'package:sb/Screens/wallet.dart';
-import 'package:sb/flatListing.dart';
-import 'package:sb/homePage.dart';
-import 'package:sb/hostelInfo.dart';
-import 'package:sb/laundry.dart';
-import 'package:sb/pgListing.dart';
-import 'package:sb/sample.dart';
-import 'package:sb/splash.dart';
-import 'package:sb/login.dart';
+import '/Screens/laundrybooking.dart';
+import '/Screens/otp.dart';
+import '/Screens/profile.dart';
+import '/Screens/wallet.dart';
+import '/flatListing.dart';
+import '/homePage.dart';
+import '/hostelInfo.dart';
+import '/laundry.dart';
+import '/pgListing.dart';
+import '/splash.dart';
+import '/login.dart';
+import 'Screens/offers.dart';
 import 'hostelListing.dart';
-import 'package:sb/Screens/search.dart';
+import '/Screens/search.dart';
+import 'package:ServiceBox/login.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -30,7 +32,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Splash(),
+      home: Login(),
       debugShowCheckedModeBanner: false,
     );
   }

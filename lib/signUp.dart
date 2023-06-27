@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:sb/Screens/otp.dart';
-import 'package:sb/main.dart';
-import 'package:sb/login.dart';
-
+import 'package:intl_phone_field/intl_phone_field.dart';
+import '../Screens/otp.dart';
+import 'main.dart';
+import 'login.dart';
 import 'const/imagename.dart';
 import 'homePage.dart';
 
@@ -84,18 +84,19 @@ class SignUp extends StatelessWidget {
 
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 35.0),
-                          child: TextFormField(
+                          child: IntlPhoneField(
                               keyboardType: TextInputType.phone,
+                              initialCountryCode: 'IN',
                               autovalidateMode: AutovalidateMode.onUserInteraction,
-                              validator: (value){
-                                if(value!.isEmpty){
-                                  return "This field is required";
-                                } else if(!RegExp(r'^[0-9]{10}$').hasMatch(value!)){
-                                  return "Enter a valid 10-digit phone number";
-                                }else{
-                                  return null;
-                                }
-                              },
+                              // validator: (value){
+                              //   if(value!.isEmpty){
+                              //     return "This field is required";
+                              //   } else if(!RegExp(r'^[0-9]{10}$').hasMatch(value!)){
+                              //     return "Enter a valid 10-digit phone number";
+                              //   }else{
+                              //     return null;
+                              //   }
+                              // },
                               inputFormatters: [
                                 FilteringTextInputFormatter.digitsOnly,
                                 LengthLimitingTextInputFormatter(10),
@@ -111,9 +112,10 @@ class SignUp extends StatelessWidget {
                                   ),
                                   fillColor: Colors.grey.shade300,
                                   filled: true,
-                                  hintText: "Enter Your Mobile Number",
+                                  hintText: "Enter Your Number",
                                   hintStyle: const TextStyle(
                                     color: Colors.black,
+                                    fontSize: 15
                                   )
                               )
                           ),

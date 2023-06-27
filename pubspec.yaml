@@ -1,4 +1,4 @@
-name: sb
+name: ServiceBox
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -33,6 +33,8 @@ dependencies:
     sdk: flutter
   carousel_slider: ^4.2.1
   another_carousel_pro: ^1.0.0
+  flutter_rating_bar: ^4.0.1
+  intl_phone_field: ^3.2.0
 
 
   # The following adds the Cupertino Icons font to your application.

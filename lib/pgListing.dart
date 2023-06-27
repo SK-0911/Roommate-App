@@ -1,8 +1,8 @@
 import 'package:another_carousel_pro/another_carousel_pro.dart';
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:sb/const/imagename.dart';
-import 'package:sb/utils/landscape_main.dart';
+import 'package:ServiceBox/const/imagename.dart';
+import 'package:ServiceBox/utils/landscape_main.dart';
 import 'const/screen.dart';
 import 'const/CustomColors.dart';
 import 'navbar.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sb/const/CustomColors.dart';
+import 'package:ServiceBox/const/CustomColors.dart';
 import '../const/cities.dart';
 import '../hostelListing.dart';
 

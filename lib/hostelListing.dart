@@ -1,7 +1,7 @@
 import 'package:another_carousel_pro/another_carousel_pro.dart';
 import 'package:flutter/material.dart';
-import 'package:sb/hostelInfo.dart';
-import 'package:sb/utils/landscape_main.dart';
+import 'package:ServiceBox/hostelInfo.dart';
+import 'package:ServiceBox/utils/landscape_main.dart';
 import 'const/imagename.dart';
 import 'const/screen.dart';
 import 'const/CustomColors.dart';
