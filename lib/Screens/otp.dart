@@ -1,6 +1,12 @@
+import 'package:ServiceBox/homePage.dart';
 import 'package:flutter/material.dart';
+
 import '/const/CustomColors.dart';
 import '/const/imagename.dart';
+import '../const/CustomColors.dart';
+import '../const/imagename.dart';
+// import 'CustomColors.dart';
+// import 'imagename.dart';
 
 class Otp extends StatefulWidget {
   const Otp({Key? key}) : super(key: key);
@@ -90,7 +96,9 @@ class _OtpState extends State<Otp> {
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (_)=>MyHomePage(title: "")), (route) => false);
+                        },
                         style: ButtonStyle(
                           foregroundColor:
                           MaterialStateProperty.all<Color>(Colors.white),

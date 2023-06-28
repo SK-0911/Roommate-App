@@ -4,8 +4,9 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 import '../Screens/otp.dart';
 import 'main.dart';
 import 'login.dart';
+import 'Screens/otp.dart';
+
 import 'const/imagename.dart';
-import 'homePage.dart';
 
 class SignUp extends StatelessWidget {
 
