@@ -1,6 +1,8 @@
 import 'dart:developer';
 import 'dart:math';
 
+import 'package:ServiceBox/Screens/more.dart';
+import 'package:ServiceBox/Screens/myBooking.dart';
 import 'package:ServiceBox/Screens/offers.dart';
 import 'package:flutter/material.dart';
 import 'package:ServiceBox/Screens/profile.dart';
@@ -1092,21 +1094,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 _bottomIconsStyle(context, 0, 'Home'),
                 // const SizedBox(width: 15),
                 _bottomIconsStyle(context, 1, 'My Booking'),
-                GestureDetector(
-                    onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) {
-                        return Offers();
-                      }),
-                    ),
-                    child: _bottomIconsStyle(context, 2, 'Offers')
-                ),
+                _bottomIconsStyle(context, 2, 'Offers'),
                 // const SizedBox(width: 20),
                 _bottomIconsStyle(context, 3, 'More'),
               ],
             ),
           ),
-        ));
+        )
+    );
   }
 
 
@@ -1118,6 +1113,41 @@ class _MyHomePageState extends State<MyHomePage> {
         onTap: () {
           setState(() {
             _selectedIndex = index;
+            if(index==1){
+              Navigator.push(
+                context, 
+                MaterialPageRoute(builder: (context) => MyBooking())
+              );
+            }
+
+            else if(index==2){
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Offers())
+              );
+            }
+
+            else if(index==3){
+              // PopupMenuButton(
+              //   itemBuilder: (context) => [
+              //     PopupMenuItem(
+              //       child: Text("Profile"),
+              //       value: "Profile",
+              //     ),
+              //
+              //     PopupMenuItem(
+              //       child: Text("Settings"),
+              //         value: "Settings"
+              //     ),
+              //   ],
+              // );
+
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => More())
+              );
+
+            }
           });
         },
         child: Container(

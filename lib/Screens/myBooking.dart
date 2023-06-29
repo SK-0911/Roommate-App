@@ -1,6 +1,7 @@
 import 'package:ServiceBox/const/CustomColors.dart';
 import 'package:flutter/material.dart';
 
+
 class MyBooking extends StatefulWidget {
   const MyBooking({Key? key}) : super(key: key);
 
@@ -18,153 +19,520 @@ class _MyBookingState extends State<MyBooking> {
   List dateCat = ['Travel Date', 'Item2'];
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 4,
-      child: Scaffold(
-        backgroundColor: Colors.grey[300],
-        appBar: AppBar(
-          backgroundColor: AppColors.darkBlueTheme,
-          leading: IconButton(
-              onPressed: () => Navigator.of(context).pop(),
-              icon: Icon(
-                Icons.arrow_back_outlined,
-                color: Colors.white,
-              ),
+
+    return Scaffold(
+      body: DefaultTabController(
+        length: 4,
+        child: Scaffold(
+          backgroundColor: Colors.grey[300],
+          appBar: AppBar(
+            backgroundColor: AppColors.darkBlueTheme,
+            leading: IconButton(
+                onPressed: () => Navigator.of(context).pop(),
+                icon: Icon(
+                  Icons.arrow_back_outlined,
+                  color: Colors.white,
+                ),
+            ),
+            title: Text("My trips"),
+            bottom: TabBar(
+              indicatorColor: AppColors.lightBlueTheme,
+              indicatorSize: TabBarIndicatorSize.tab,
+              indicatorWeight: 5,
+              isScrollable: true,
+              tabs: [
+                Tab(text: 'All',),
+                Tab(text: 'Cancelled',),
+                Tab(text: 'Completed'),
+                Tab(text: 'Unsuccessful'),
+              ],
+            ),
           ),
-          title: Text("My trips"),
-          bottom: TabBar(
-            indicatorColor: AppColors.lightBlueTheme,
-            indicatorSize: TabBarIndicatorSize.tab,
-            indicatorWeight: 5,
-            isScrollable: true,
-            tabs: [
-              Tab(text: 'All',),
-              Tab(text: 'Cancelled',),
-              Tab(text: 'Completed'),
-              Tab(text: 'Unsuccessful'),
-            ],
-          ),
-        ),
-        body: ListView(
-          children: [
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          body: TabBarView(
+            children: [
+              // All (page)
+              ListView(
                 children: [
-                  // Dropdown 1 (All bookings)
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
-                    width: MediaQuery.of(context).size.width/2.2,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10)
-                    ),
-                    child: DropdownButton<String>(
-                        underline: Container(
-                          height: 0,
-                          color: Colors.transparent,
-                        ),
-                        isExpanded: true,
-                        icon: Icon(
-                            Icons.keyboard_arrow_down,
-                            color: Colors.black,
-                            size: 20,
-                        ),
-                        items: [
-                          DropdownMenuItem(
-                            child: Text(
-                              bookingCat[0],
-                              style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w700
-                              ),
-                            ),
-                            value: bookingCat[0],
+                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        // Dropdown 1 (All bookings)
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+                          width: MediaQuery.of(context).size.width/2.2,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10)
                           ),
-                          DropdownMenuItem(
-                            child: Text(
-                              bookingCat[1],
-                              style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w700
-                              ),
+                          child: DropdownButton<String>(
+                            underline: Container(
+                              height: 0,
+                              color: Colors.transparent,
                             ),
-                            value: bookingCat[1],
+                            isExpanded: true,
+                            icon: Icon(
+                              Icons.keyboard_arrow_down,
+                              color: Colors.black,
+                              size: 20,
+                            ),
+                            items: [
+                              DropdownMenuItem(
+                                child: Text(
+                                  bookingCat[0],
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w700
+                                  ),
+                                ),
+                                value: bookingCat[0],
+                              ),
+                              DropdownMenuItem(
+                                child: Text(
+                                  bookingCat[1],
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w700
+                                  ),
+                                ),
+                                value: bookingCat[1],
+                              ),
+                            ],
+                            value: booking,
+                            onChanged: (String? newValue) {
+                              setState(() {
+                                booking = newValue!;
+                              });
+                            },
                           ),
-                        ],
-                        value: booking,
-                        onChanged: (String? newValue) {
-                          setState(() {
-                            booking = newValue!;
-                          });
-                        },
+                        ),
+
+                        // Dropdown 2 (Travel Date)
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+                          width: MediaQuery.of(context).size.width/2.2,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10)
+                          ),
+                          child: DropdownButton<String>(
+                            underline: Container(
+                              height: 0,
+                              color: Colors.transparent,
+                            ),
+                            isExpanded: true,
+                            icon: Icon(
+                              Icons.keyboard_arrow_down,
+                              color: Colors.black,
+                              size: 20,
+                            ),
+                            items: [
+                              DropdownMenuItem(
+                                child: Text(
+                                  dateCat[0],
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w700
+                                  ),
+                                ),
+                                value: dateCat[0],
+                              ),
+                              DropdownMenuItem(
+                                child: Text(
+                                  dateCat[1],
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w700
+                                  ),
+                                ),
+                                value: dateCat[1],
+                              ),
+                            ],
+                            value: date,
+                            onChanged: (String? newValue) {
+                              setState(() {
+                                date = newValue!;
+                              });
+                            },
+                          ),
+                        )
+                      ],
                     ),
                   ),
 
-                  // Dropdown 2 (Travel Date)
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
-                    width: MediaQuery.of(context).size.width/2.2,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10)
-                    ),
-                    child: DropdownButton<String>(
-                      underline: Container(
-                        height: 0,
-                        color: Colors.transparent,
-                      ),
-                      isExpanded: true,
-                      icon: Icon(
-                        Icons.keyboard_arrow_down,
-                        color: Colors.black,
-                        size: 20,
-                      ),
-                      items: [
-                        DropdownMenuItem(
-                          child: Text(
-                            dateCat[0],
-                            style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w700
-                            ),
-                          ),
-                          value: dateCat[0],
-                        ),
-                        DropdownMenuItem(
-                          child: Text(
-                            dateCat[1],
-                            style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w700
-                            ),
-                          ),
-                          value: dateCat[1],
-                        ),
-                      ],
-                      value: date,
-                      onChanged: (String? newValue) {
-                        setState(() {
-                          date = newValue!;
-                        });
-                      },
-                    ),
-                  )
+                  tile("Marriott, Mumbai", "Unsuccessful", "31 Jun"),
+                  const SizedBox(height: 10,),
+                  tile("Taj, Udaipur", "Cancelled", "30 Feb"),
+                  const SizedBox(height: 10,),
+                  tile("Oberoi, Udaipur", "Completed", "29 Feb"),
                 ],
               ),
-            ),
 
-            tile("Marriott, Mumbai"),
-            const SizedBox(height: 10,),
-            tile("Taj, Udaipur")
-          ],
+              // Cancelled (page)
+              ListView(
+                children: [
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        // Dropdown 1 (All bookings)
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+                          width: MediaQuery.of(context).size.width/2.2,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10)
+                          ),
+                          child: DropdownButton<String>(
+                            underline: Container(
+                              height: 0,
+                              color: Colors.transparent,
+                            ),
+                            isExpanded: true,
+                            icon: Icon(
+                              Icons.keyboard_arrow_down,
+                              color: Colors.black,
+                              size: 20,
+                            ),
+                            items: [
+                              DropdownMenuItem(
+                                child: Text(
+                                  bookingCat[0],
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w700
+                                  ),
+                                ),
+                                value: bookingCat[0],
+                              ),
+                              DropdownMenuItem(
+                                child: Text(
+                                  bookingCat[1],
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w700
+                                  ),
+                                ),
+                                value: bookingCat[1],
+                              ),
+                            ],
+                            value: booking,
+                            onChanged: (String? newValue) {
+                              setState(() {
+                                booking = newValue!;
+                              });
+                            },
+                          ),
+                        ),
+
+                        // Dropdown 2 (Travel Date)
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+                          width: MediaQuery.of(context).size.width/2.2,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10)
+                          ),
+                          child: DropdownButton<String>(
+                            underline: Container(
+                              height: 0,
+                              color: Colors.transparent,
+                            ),
+                            isExpanded: true,
+                            icon: Icon(
+                              Icons.keyboard_arrow_down,
+                              color: Colors.black,
+                              size: 20,
+                            ),
+                            items: [
+                              DropdownMenuItem(
+                                child: Text(
+                                  dateCat[0],
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w700
+                                  ),
+                                ),
+                                value: dateCat[0],
+                              ),
+                              DropdownMenuItem(
+                                child: Text(
+                                  dateCat[1],
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w700
+                                  ),
+                                ),
+                                value: dateCat[1],
+                              ),
+                            ],
+                            value: date,
+                            onChanged: (String? newValue) {
+                              setState(() {
+                                date = newValue!;
+                              });
+                            },
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+
+                  tile("Taj, Udaipur", "Cancelled", "30 Feb"),
+                ],
+              ),
+
+              // Completed (page)
+              ListView(
+                children: [
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        // Dropdown 1 (All bookings)
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+                          width: MediaQuery.of(context).size.width/2.2,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10)
+                          ),
+                          child: DropdownButton<String>(
+                            underline: Container(
+                              height: 0,
+                              color: Colors.transparent,
+                            ),
+                            isExpanded: true,
+                            icon: Icon(
+                              Icons.keyboard_arrow_down,
+                              color: Colors.black,
+                              size: 20,
+                            ),
+                            items: [
+                              DropdownMenuItem(
+                                child: Text(
+                                  bookingCat[0],
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w700
+                                  ),
+                                ),
+                                value: bookingCat[0],
+                              ),
+                              DropdownMenuItem(
+                                child: Text(
+                                  bookingCat[1],
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w700
+                                  ),
+                                ),
+                                value: bookingCat[1],
+                              ),
+                            ],
+                            value: booking,
+                            onChanged: (String? newValue) {
+                              setState(() {
+                                booking = newValue!;
+                              });
+                            },
+                          ),
+                        ),
+
+                        // Dropdown 2 (Travel Date)
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+                          width: MediaQuery.of(context).size.width/2.2,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10)
+                          ),
+                          child: DropdownButton<String>(
+                            underline: Container(
+                              height: 0,
+                              color: Colors.transparent,
+                            ),
+                            isExpanded: true,
+                            icon: Icon(
+                              Icons.keyboard_arrow_down,
+                              color: Colors.black,
+                              size: 20,
+                            ),
+                            items: [
+                              DropdownMenuItem(
+                                child: Text(
+                                  dateCat[0],
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w700
+                                  ),
+                                ),
+                                value: dateCat[0],
+                              ),
+                              DropdownMenuItem(
+                                child: Text(
+                                  dateCat[1],
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w700
+                                  ),
+                                ),
+                                value: dateCat[1],
+                              ),
+                            ],
+                            value: date,
+                            onChanged: (String? newValue) {
+                              setState(() {
+                                date = newValue!;
+                              });
+                            },
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+
+                  tile("Oberoi, Udaipur", "Completed", "29 Feb"),
+                ],
+              ),
+
+              // Unsuccessful
+              ListView(
+                children: [
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        // Dropdown 1 (All bookings)
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+                          width: MediaQuery.of(context).size.width/2.2,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10)
+                          ),
+                          child: DropdownButton<String>(
+                            underline: Container(
+                              height: 0,
+                              color: Colors.transparent,
+                            ),
+                            isExpanded: true,
+                            icon: Icon(
+                              Icons.keyboard_arrow_down,
+                              color: Colors.black,
+                              size: 20,
+                            ),
+                            items: [
+                              DropdownMenuItem(
+                                child: Text(
+                                  bookingCat[0],
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w700
+                                  ),
+                                ),
+                                value: bookingCat[0],
+                              ),
+                              DropdownMenuItem(
+                                child: Text(
+                                  bookingCat[1],
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w700
+                                  ),
+                                ),
+                                value: bookingCat[1],
+                              ),
+                            ],
+                            value: booking,
+                            onChanged: (String? newValue) {
+                              setState(() {
+                                booking = newValue!;
+                              });
+                            },
+                          ),
+                        ),
+
+                        // Dropdown 2 (Travel Date)
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+                          width: MediaQuery.of(context).size.width/2.2,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10)
+                          ),
+                          child: DropdownButton<String>(
+                            underline: Container(
+                              height: 0,
+                              color: Colors.transparent,
+                            ),
+                            isExpanded: true,
+                            icon: Icon(
+                              Icons.keyboard_arrow_down,
+                              color: Colors.black,
+                              size: 20,
+                            ),
+                            items: [
+                              DropdownMenuItem(
+                                child: Text(
+                                  dateCat[0],
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w700
+                                  ),
+                                ),
+                                value: dateCat[0],
+                              ),
+                              DropdownMenuItem(
+                                child: Text(
+                                  dateCat[1],
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w700
+                                  ),
+                                ),
+                                value: dateCat[1],
+                              ),
+                            ],
+                            value: date,
+                            onChanged: (String? newValue) {
+                              setState(() {
+                                date = newValue!;
+                              });
+                            },
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+
+                  tile("Marriott, Mumbai", "Unsuccessful", "31 Jun"),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
   }
 
-  tile(String name,){
+
+  Color statusColor(val){
+    if(val=="Cancelled"){
+      return Colors.red;
+    }else if(val=="Completed"){
+      return AppColors.lightGreenTheme;
+    }
+    else {
+      return AppColors.lightBlueTheme;
+    }
+  }
+
+  tile(String name, String status, String date){
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 10),
       // height: MediaQuery.of(context).size.height*0.1,
@@ -190,13 +558,13 @@ class _MyBookingState extends State<MyBooking> {
                 Row(
                   children: [
                     Text(
-                      "Cancelled | ",
+                      status + " | ",
                       style: TextStyle(
-                          color: Colors.red
+                          color: statusColor(status),
                       ),
                     ),
                     Text(
-                      "22 Jun",
+                      date,
                       style: TextStyle(
                         color: Colors.grey[800],
                         fontSize: 12,
