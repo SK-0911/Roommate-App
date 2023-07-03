@@ -14,12 +14,15 @@ class _OffersState extends State<Offers> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppColors.darkBlueTheme,
-        leading: IconButton(
-          onPressed: () => Navigator.of(context).pop(),
-          icon: Icon(
-            Icons.arrow_back_outlined,
-            color: Colors.white,
+        flexibleSpace: FlexibleSpaceBar(
+          background: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    colors: [AppColors.darkBlueTheme, AppColors.lightBlueTheme, AppColors.lightGreenTheme],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight
+                )
+            ),
           ),
         ),
         title: Text(

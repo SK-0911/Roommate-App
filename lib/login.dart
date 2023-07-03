@@ -1,3 +1,4 @@
+import 'package:ServiceBox/homePage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ServiceBox/const/imagename.dart';
@@ -5,7 +6,7 @@ import 'package:ServiceBox/signUp.dart';
 import 'package:ServiceBox/utils/landscape_main.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
-import 'homePage.dart';
+import 'MyHomePage.dart';
 
 class Login extends StatelessWidget {
 
@@ -94,9 +95,7 @@ class Login extends StatelessWidget {
                 MaterialPageRoute(
                     builder: (context){
                       // return smaplepage();
-                      return MyHomePage(
-                        title: 'Service Box',
-                      );
+                      return MyHomePage(title: "");
                     }
                 ),
                 ),

@@ -26,13 +26,16 @@ class _MyBookingState extends State<MyBooking> {
         child: Scaffold(
           backgroundColor: Colors.grey[300],
           appBar: AppBar(
-            backgroundColor: AppColors.darkBlueTheme,
-            leading: IconButton(
-                onPressed: () => Navigator.of(context).pop(),
-                icon: Icon(
-                  Icons.arrow_back_outlined,
-                  color: Colors.white,
+            flexibleSpace: FlexibleSpaceBar(
+              background: Container(
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                        colors: [AppColors.darkBlueTheme, AppColors.lightBlueTheme, AppColors.lightGreenTheme],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight
+                    )
                 ),
+              ),
             ),
             title: Text("My trips"),
             bottom: TabBar(
@@ -41,8 +44,8 @@ class _MyBookingState extends State<MyBooking> {
               indicatorWeight: 5,
               isScrollable: true,
               tabs: [
-                Tab(text: 'All',),
-                Tab(text: 'Cancelled',),
+                Tab(text: 'All'),
+                Tab(text: 'Cancelled'),
                 Tab(text: 'Completed'),
                 Tab(text: 'Unsuccessful'),
               ],

@@ -18,3 +18,4 @@ const mastercard = "assets/icons/mastercard.png";
 const visa = "assets/icons/visa.png";
 const addCard = "assets/icons/addCard.png";
 const sbText = "assets/icons/sbText.png";
+const bike = "assets/icons/bike.png";

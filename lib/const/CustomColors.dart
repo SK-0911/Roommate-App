@@ -16,5 +16,9 @@ class AppColors{
   static const home1st  = Color(0xff1d5dba);
   static const home4st  = Color(0xFF1C335D);
   static const home2st  = Color(0xFC3B693F);
-
+  static var logoGradient = LinearGradient(
+      colors: [AppColors.darkBlueTheme, AppColors.lightBlueTheme, AppColors.lightGreenTheme],
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight
+  );
 }

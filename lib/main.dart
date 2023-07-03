@@ -1,4 +1,5 @@
 import 'package:ServiceBox/Screens/myBooking.dart';
+import 'package:ServiceBox/Screens/rental.dart';
 import 'package:ServiceBox/splash.dart';
 import 'package:flutter/material.dart';
 
@@ -7,7 +8,7 @@ import '/Screens/otp.dart';
 import '/Screens/profile.dart';
 import '/Screens/wallet.dart';
 import '/flatListing.dart';
-import '/homePage.dart';
+import '/MyHomePage.dart';
 import '/hostelInfo.dart';
 import '/laundry.dart';
 import '/pgListing.dart';
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Login(),
+      home: Rental(),
       debugShowCheckedModeBanner: false,
     );
   }

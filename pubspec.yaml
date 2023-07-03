@@ -35,6 +35,8 @@ dependencies:
   another_carousel_pro: ^1.0.0
   flutter_rating_bar: ^4.0.1
   intl_phone_field: ^3.2.0
+  chewie: ^1.5.0
+  video_player: ^2.7.0
 
 
   # The following adds the Cupertino Icons font to your application.
