@@ -1,10 +1,12 @@
+import 'package:ServiceBox/homePage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ServiceBox/const/imagename.dart';
 import 'package:ServiceBox/signUp.dart';
 import 'package:ServiceBox/utils/landscape_main.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 
-import 'homePage.dart';
+import 'MyHomePage.dart';
 
 class Login extends StatelessWidget {
 
@@ -47,34 +49,40 @@ class Login extends StatelessWidget {
               // Input Field
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 35.0),
-                child: Form(
-                  key: _formKey,
-                  child: TextFormField(
+                child: IntlPhoneField(
                     keyboardType: TextInputType.phone,
-                      onChanged: (value){
-                      // _formKey.currentState!.validate();
-                    },
+                    initialCountryCode: 'IN',
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    // validator: (value){
+                    //   if(value!.isEmpty){
+                    //     return "This field is required";
+                    //   } else if(!RegExp(r'^[0-9]{10}$').hasMatch(value!)){
+                    //     return "Enter a valid 10-digit phone number";
+                    //   }else{
+                    //     return null;
+                    //   }
+                    // },
                     inputFormatters: [
                       FilteringTextInputFormatter.digitsOnly,
                       LengthLimitingTextInputFormatter(10),
                     ],
                     controller: controller,
                     decoration: InputDecoration(
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide.none,
-                      ),
-                      focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide.none,
-                      ),
-                      fillColor: Colors.grey.shade300,
-                      filled: true,
-                      hintText: "Enter Mobile Number",
-                      hintStyle: const TextStyle(
-                        color: Colors.black,
-                      )
-                  )
-                  ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide.none,
+                        ),
+                        focusedBorder: const OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                        ),
+                        fillColor: Colors.grey.shade300,
+                        filled: true,
+                        hintText: "Enter Your Number",
+                        hintStyle: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 15
+                        )
+                    )
                 ),
               ),
 
@@ -87,9 +95,7 @@ class Login extends StatelessWidget {
                 MaterialPageRoute(
                     builder: (context){
                       // return smaplepage();
-                      return MyHomePage(
-                        title: 'Service Box',
-                      );
+                      return MyHomePage(title: "");
                     }
                 ),
                 ),
