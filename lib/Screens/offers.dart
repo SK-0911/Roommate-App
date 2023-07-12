@@ -17,11 +17,7 @@ class _OffersState extends State<Offers> {
         flexibleSpace: FlexibleSpaceBar(
           background: Container(
             decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    colors: [AppColors.darkBlueTheme, AppColors.lightBlueTheme, AppColors.lightGreenTheme],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight
-                )
+                gradient: AppColors.logoGradient,
             ),
           ),
         ),
@@ -53,7 +49,8 @@ class _OffersState extends State<Offers> {
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: AppColors.darkBlueTheme,
+        // color: AppColors.darkBlueTheme,
+        gradient: AppColors.logoGradient,
       ),
       child: Column(
         children:  [

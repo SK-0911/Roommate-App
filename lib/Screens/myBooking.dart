@@ -29,11 +29,7 @@ class _MyBookingState extends State<MyBooking> {
             flexibleSpace: FlexibleSpaceBar(
               background: Container(
                 decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                        colors: [AppColors.darkBlueTheme, AppColors.lightBlueTheme, AppColors.lightGreenTheme],
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight
-                    )
+                    gradient: AppColors.logoGradient,
                 ),
               ),
             ),

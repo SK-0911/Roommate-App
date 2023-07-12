@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:slide_to_act/slide_to_act.dart';
 import '../const/CustomColors.dart';
 import '../const/imagename.dart';
 
@@ -21,11 +21,7 @@ class _RentalState extends State<Rental> {
         flexibleSpace: FlexibleSpaceBar(
           background: Container(
             decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    colors: [AppColors.darkBlueTheme, AppColors.lightBlueTheme, AppColors.lightGreenTheme],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight
-                )
+                gradient: AppColors.logoGradient,
             ),
           ),
         ),
@@ -130,13 +126,13 @@ class _RentalState extends State<Rental> {
                 SizedBox(width: 10,),
                 Time("8:00 AM"),
                 SizedBox(width: 15,),
-                Time("9:00 AM"),
+                Time("8:15 AM"),
                 SizedBox(width: 15,),
-                Time("10:00 AM"),
+                Time("8:30 AM"),
                 SizedBox(width: 10,),
-                Time("11:00 AM"),
+                Time("8:45 AM"),
                 SizedBox(width: 10,),
-                Time("12:00 AM"),
+                Time("9:00 AM"),
               ],
             ),
           ),
@@ -181,166 +177,173 @@ class _RentalState extends State<Rental> {
 
           const SizedBox(height: 40,),
 
-          InkWell(
-            onTap: () => showDialog(
-                context: context,
-                builder: (BuildContext context) => AlertDialog(
-                  title: Center(
-                    child: Text(
-                      'Rent Bike on',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 25,
-                      ),
-                    ),
-                  ),
-                  content: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                          '17th March at 9:00 PM'
-                      ),
-                    ],
-                  ),
-                  actions: <Widget>[
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        // Cancel
-                        Container(
-                          padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
-                          decoration: BoxDecoration(
-                            color: Color(0xffEDEBEB),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: TextButton(
-                            onPressed: () => Navigator.pop(context, 'Cancel'),
-                            child: Text(
-                                'Cancel',
-                              style: TextStyle(
-                                color: Color(0xffB5B5B5),
-                                fontWeight: FontWeight.bold,
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width/12),
+            child: Center(
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SlideAction(
+                      onSubmit: () => showDialog(
+                          context: context,
+                          builder: (BuildContext context) => AlertDialog(
+                            title: Center(
+                              child: Text(
+                                'Rent Bike on',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 25,
+                                ),
                               ),
                             ),
-                          ),
-                        ),
-
-                        const SizedBox(width: 10,),
-
-                        // Confirm
-                        Container(
-                          padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
-                          decoration: BoxDecoration(
-                            // color: AppColors.darkBlueTheme,
-                              gradient: AppColors.logoGradient,
-                              borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: TextButton(
-                            onPressed: () => showDialog(
-                                context: context,
-                                builder: (BuildContext context) => AlertDialog(
-                                  title: Center(
-                                    child: Text(
-                                      'Booking Confirmed!',
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 25,
+                            content: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                    '17th March at 9:00 PM'
+                                ),
+                              ],
+                            ),
+                            actions: <Widget>[
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  // Cancel
+                                  Container(
+                                    padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+                                    decoration: BoxDecoration(
+                                      color: Color(0xffEDEBEB),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: TextButton(
+                                      onPressed: () => Navigator.pop(context, 'Cancel'),
+                                      child: Text(
+                                        'Cancel',
+                                        style: TextStyle(
+                                          color: Color(0xffB5B5B5),
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
                                     ),
                                   ),
-                                  content: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Container(
-                                        padding: EdgeInsets.all(10),
-                                        decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          color: AppColors.lightGreenTheme,
-                                        ),
-                                        child: Icon(
-                                          Icons.check,
-                                          color: Colors.white,
-                                        ),
-                                      ),
 
-                                      const SizedBox(height: 15,),
+                                  const SizedBox(width: 10,),
 
-                                      Text(
-                                        "Your order has been\nsuccessfully placed",
-                                        style: TextStyle(
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  actions: [
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                        Container(
-                                          padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
-                                          decoration: BoxDecoration(
-                                            gradient: AppColors.logoGradient,
-                                            borderRadius: BorderRadius.circular(10),
-                                          ),
-                                          child: TextButton(
-                                            onPressed: () => Navigator.pop(context, 'Cancel'),
-                                            child: Text(
-                                              'Cancel',
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.bold,
+                                  // Confirm
+                                  Container(
+                                    padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+                                    decoration: BoxDecoration(
+                                      // color: AppColors.darkBlueTheme,
+                                      gradient: AppColors.logoGradient,
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: TextButton(
+                                      onPressed: () => showDialog(
+                                          context: context,
+                                          builder: (BuildContext context) => AlertDialog(
+                                            title: Center(
+                                              child: Text(
+                                                'Booking Confirmed!',
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 25,
+                                                ),
                                               ),
                                             ),
-                                          ),
+                                            content: Column(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                Container(
+                                                  padding: EdgeInsets.all(10),
+                                                  decoration: BoxDecoration(
+                                                    shape: BoxShape.circle,
+                                                    color: AppColors.lightGreenTheme,
+                                                  ),
+                                                  child: Icon(
+                                                    Icons.check,
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+
+                                                const SizedBox(height: 15,),
+
+                                                Text(
+                                                  "Your order has been\nsuccessfully placed",
+                                                  style: TextStyle(
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            actions: [
+                                              Row(
+                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                children: [
+                                                  Container(
+                                                    padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+                                                    decoration: BoxDecoration(
+                                                      gradient: AppColors.logoGradient,
+                                                      borderRadius: BorderRadius.circular(10),
+                                                    ),
+                                                    child: TextButton(
+                                                      onPressed: () => Navigator.pop(context, 'Cancel'),
+                                                      child: Text(
+                                                        'Cancel',
+                                                        style: TextStyle(
+                                                          color: Colors.white,
+                                                          fontWeight: FontWeight.bold,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              )
+                                            ],
+                                          )
+                                      ),
+                                      child: Text(
+                                        'Confirm',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
                                         ),
-                                      ],
-                                    )
-                                  ],
-                                )
-                            ),
-                            child: Text(
-                              'Confirm',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
+                            ],
+                          )
+                      ),
+                      outerColor: AppColors.newBlueTheme,
+                      sliderRotate: false,
+                      elevation: 4,
+                      height: 60,
+                      sliderButtonIconPadding: 10,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          gradient: AppColors.logoGradient,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Slide to Book",
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
                             ),
+                            textAlign: TextAlign.center,
                           ),
                         ),
-                      ],
+                      ),
                     ),
                   ],
-                )
-            ),
-            child: Center(
-              child: Container(
-                width: MediaQuery.of(context).size.width/2,
-                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
-                decoration: BoxDecoration(
-                    // color: AppColors.darkBlueTheme,
-                    gradient: AppColors.logoGradient,
-                    borderRadius: BorderRadius.circular(5),
-                    boxShadow: [
-                      BoxShadow(
-                          offset: const Offset(0, 5),
-                          color: Colors.black.withOpacity(.2),
-                          spreadRadius: 1.5,
-                          blurRadius: 5
-                      )
-                    ]
-                ),
-                child: Center(
-                  child: Text(
-                    "BOOK NOW",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );
@@ -355,7 +358,7 @@ class _RentalState extends State<Rental> {
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
               color: Colors.white,
-              image: DecorationImage(image: AssetImage(title=="Scooter"?washAndIron:title=="Bike"?dryClean:title=="Car"?Ironing:chemicalWash),
+              image: DecorationImage(image: AssetImage(title=="Scooter"?scooty:title=="Bike"?bike:title=="Car"?car:chemicalWash),
                   fit: BoxFit.contain,
                   alignment: Alignment.center
               ),

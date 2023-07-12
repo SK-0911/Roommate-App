@@ -53,6 +53,7 @@ class _SearchState extends State<Search> {
             ),
             const SizedBox(height: 20.0),
 
+            // Search Bar
             TextField(
               onChanged: (val) => filterList(val),
               decoration: InputDecoration(

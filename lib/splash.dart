@@ -33,10 +33,13 @@ class _SplashState extends State<Splash> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.white,
+        // color: Colors.white,
+        decoration: BoxDecoration(
+          gradient: AppColors.logoGradient,
+        ),
         child: Center(
           child: Container(
-            child: Image.asset(serviceBoxIcon, fit: BoxFit.cover, height: 200,),
+            child: Image.asset(newLogo, fit: BoxFit.cover, height: 200,),
           ),
         ),
       ),

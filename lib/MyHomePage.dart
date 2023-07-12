@@ -122,7 +122,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 padding: EdgeInsets.all(8.0),
                 decoration: BoxDecoration(shape: BoxShape.circle,
                     // border: Border.all(width: 1),
-                    color:  _selectedIndex == index ? AppColors.darkBlueTheme : Colors.white
+                    color:  _selectedIndex == index ? AppColors.newBlueTheme : Colors.white
                 ),
                 child: Icon(
                   index == 0
@@ -145,7 +145,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 title,
                 style: TextStyle(
                     fontSize: 12,
-                    color: _selectedIndex == index ? AppColors.darkBlueTheme : Colors.grey),
+                    color: _selectedIndex == index ? AppColors.newBlueTheme : Colors.grey),
               )
             ],
           ),

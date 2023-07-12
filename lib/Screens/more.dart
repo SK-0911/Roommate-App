@@ -1,3 +1,4 @@
+import 'package:ServiceBox/Screens/about.dart';
 import 'package:ServiceBox/const/CustomColors.dart';
 import 'package:flutter/material.dart';
 import 'package:chewie/chewie.dart';
@@ -17,7 +18,8 @@ class _MoreState extends State<More> {
   List moreMenu = [
     "My Trips", "My coupon", "My Saved Cards", "My UPI",
     "Customer Support", "Setting",
-    "Refer and Earn", "Refer a Accommodation"
+    "Refer and Earn", "Refer a Accommodation",
+    "About the App"
   ];
 
   bool _isSelected = false;
@@ -30,11 +32,7 @@ class _MoreState extends State<More> {
         flexibleSpace: FlexibleSpaceBar(
           background: Container(
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [AppColors.darkBlueTheme, AppColors.lightBlueTheme, AppColors.lightGreenTheme],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight
-              )
+              gradient: AppColors.logoGradient,
             ),
           ),
         ),
@@ -104,6 +102,19 @@ class _MoreState extends State<More> {
             leading: Icon(Icons.door_back_door_outlined),
             title: Text(moreMenu[7]),
             subtitle: Text("Lorem ipsum"),
+          ),
+
+          // About Us
+          InkWell(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_)=>About()));
+            },
+            child: ListTile(
+              tileColor: Colors.white,
+              leading: Icon(Icons.info),
+              title: Text(moreMenu[8]),
+              subtitle: Text("Lorem ipsum"),
+            ),
           ),
           
           const SizedBox(height: 10),
