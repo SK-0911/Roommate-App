@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:ServiceBox/Screens/more.dart';
 import 'package:ServiceBox/Screens/myBooking.dart';
 import 'package:ServiceBox/Screens/offers.dart';
+import 'package:ServiceBox/Screens/soon.dart';
 import 'package:flutter/material.dart';
 import 'package:ServiceBox/Screens/profile.dart';
 import 'package:ServiceBox/Screens/search.dart';
@@ -14,6 +15,7 @@ import 'package:ServiceBox/laundry.dart';
 import 'package:ServiceBox/pgListing.dart';
 import 'package:ServiceBox/utils/landscape_main.dart';
 import 'MyHomePage.dart';
+import 'Screens/cab.dart';
 import 'hostelListing.dart';
 import 'const/CustomColors.dart';
 import 'const/screen.dart';
@@ -59,6 +61,7 @@ class _HomePageState extends State<HomePage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
+                        // Profile Icon
                         InkWell(
                           onTap: (){
                             Navigator.push(context, MaterialPageRoute(builder: (_)=>Profile()));
@@ -78,6 +81,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                         ),
+
                         // Notification, wallet and search
                         Row(
                           children:  [
@@ -93,17 +97,6 @@ class _HomePageState extends State<HomePage> {
                               },
                               child: Icon(
                                 Icons.wallet,
-                                size: 30,
-                                color: AppColors.darkBlueTheme,
-                              ),
-                            ),
-                            SizedBox(width: 10),
-                            InkWell(
-                              onTap: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (_)=>Search()));
-                              },
-                              child: Icon(
-                                Icons.search,
                                 size: 30,
                                 color: AppColors.darkBlueTheme,
                               ),
@@ -164,6 +157,46 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ),
+                    const SizedBox(height: 20,),
+
+                    Column(
+                      children: [
+                        // Search
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width/15,),
+                          child: TextField(
+                            decoration: InputDecoration(
+                              isDense: true,
+                              contentPadding: EdgeInsets.symmetric(vertical: 0),
+                              filled: true,
+                              fillColor: AppColors.lightGrey,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(50.0),
+                                borderSide: BorderSide.none,
+                              ),
+                              hintText: "Search City",
+                              hintStyle: TextStyle(
+                                color: AppColors.darkBlueTheme,
+                              ),
+                              prefixIcon: Icon(Icons.search),
+                              prefixIconColor: Colors.white,
+                            ),
+                          ),
+                        ),
+
+                        const SizedBox(height: 8,),
+
+                        // Text below search
+                        Text(
+                            "Search for a Verified Services & More...",
+                          style: TextStyle(
+                            fontSize: 12,
+                          ),
+                        )
+                      ],
+                    ),
+
+                    const SizedBox(height: 15,),
                   ],
                 ),
               ),
@@ -227,22 +260,27 @@ class _HomePageState extends State<HomePage> {
                             ),
                             child: Container(
 
-                              child: Stack(
-                                children: [
-                                  Container(
-                                    width: Screen.isPortrait(context)
-                                        ? MediaQuery.of(context).size.width / 2.1
-                                        : MediaQuery.of(context).size.width / 4,
-                                    child: Image.asset(cabcard,
-                                    fit: BoxFit.fill,
-                                    height: 120,
+                              child: InkWell(
+                                onTap: (){
+                                  Navigator.push(context, MaterialPageRoute(builder: (_)=>Cab()));
+                                },
+                                child: Stack(
+                                  children: [
+                                    Container(
+                                      width: Screen.isPortrait(context)
+                                          ? MediaQuery.of(context).size.width / 2.1
+                                          : MediaQuery.of(context).size.width / 4,
+                                      child: Image.asset(cabcard,
+                                      fit: BoxFit.fill,
+                                      height: 120,
+                                      ),
                                     ),
-                                  ),
-                                  ListTile(
-                                    title: Text("Cab",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
-                                    // subtitle: Text('Card Subtitle'),
-                                  ),),
-                                ],
+                                    ListTile(
+                                      title: Text("Cab",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                                      // subtitle: Text('Card Subtitle'),
+                                    ),),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -333,7 +371,7 @@ class _HomePageState extends State<HomePage> {
                       Center(
                         child: InkWell(
                           onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (_)=>const Laundry()));
+                            Navigator.push(context, MaterialPageRoute(builder: (_)=>const ComingSoon()));
                           },
                           child: Container(
                             width: Screen.isPortrait(context)
