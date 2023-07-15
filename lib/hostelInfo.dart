@@ -2,7 +2,6 @@ import 'package:another_carousel_pro/another_carousel_pro.dart';
 import 'package:flutter/material.dart';
 import 'package:ServiceBox/const/CustomColors.dart';
 import 'package:ServiceBox/utils/landscape_main.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 import 'const/imagename.dart';
 
