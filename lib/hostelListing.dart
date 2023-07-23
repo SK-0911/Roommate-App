@@ -1,7 +1,11 @@
 import 'package:another_carousel_pro/another_carousel_pro.dart';
+import 'package:dob_input_field/dob_input_field.dart';
 import 'package:flutter/material.dart';
 import 'package:ServiceBox/hostelInfo.dart';
 import 'package:ServiceBox/utils/landscape_main.dart';
+import 'package:flutter/services.dart';
+import 'package:intl_phone_field/country_picker_dialog.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 import 'const/imagename.dart';
 import 'const/screen.dart';
 import 'const/CustomColors.dart';
@@ -21,15 +25,22 @@ class _ListingState extends State<Listing> {
 
     return Scaffold(
       appBar: AppBar(
+        flexibleSpace: FlexibleSpaceBar(
+          background: Container(
+            decoration: BoxDecoration(
+              gradient: AppColors.logoGradient,
+            ),
+          ),
+        ),
         leading: InkWell(
             onTap: (){
               Navigator.pop(context);
             },
-            child: Icon(Icons.arrow_back_ios,color: Colors.black)),
+            child: Icon(Icons.arrow_back_ios,color: Colors.white)),
         // foregroundColor: Colors.white,
         backgroundColor: Colors.white,
         centerTitle: true,
-        title:Text("Hostel",style: TextStyle(color: Colors.black)),
+        title:Text("Hostel",style: TextStyle(color: Colors.white)),
       ),
       body: LandscapeView(
         middleRatio: 2,
@@ -163,31 +174,298 @@ class _ListingState extends State<Listing> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    width: Screen.isPortrait(context)
-                        ? MediaQuery.of(context).size.width / 2.1
-                        : MediaQuery.of(context).size.width / 4.7,
-                    // height: 100,
-                    child: Card(
-                      color: AppColors.lightBlueTheme,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      child: Container(
-                        padding: EdgeInsets.symmetric(vertical: 15),
-                        child: const Center(
-                          child: Text(
-                            "SCHEDULE A VISIT",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w900,
+                  // Schedule a visit
+                  InkWell(
+                    onTap: () => showDialog(
+                        context: context,
+                        barrierDismissible: true,
+                        builder: (BuildContext context) => AlertDialog(
+                          backgroundColor: Colors.transparent,
+                          contentPadding: EdgeInsets.zero,
+                          content: Container(
+                            padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                            decoration: BoxDecoration(
+                              gradient: AppColors.logoGradient,
+                            ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Align(
+                                  alignment: Alignment.topLeft,
+                                  child: Text(
+                                      "Your Name",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                ),
+                                TextFormField(
+                                  cursorColor: Colors.white,
+                                  style: TextStyle(color: Colors.white),
+                                  keyboardType: TextInputType.name,
+                                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                                  validator: (value) {
+                                    if(value!.isEmpty){
+                                      return "This field is required";
+                                    } else if(!RegExp(r'^[a-zA-Z]+$').hasMatch(value!)){
+                                      return "Enter a valid name";
+                                    }else{
+                                      return null;
+                                    }
+                                  },
+                                  decoration: InputDecoration(
+                                    enabledBorder: UnderlineInputBorder(
+                                          borderSide: BorderSide(color: Colors.white38),
+                                      ),
+                                      focusedBorder: const UnderlineInputBorder(
+                                        borderSide: BorderSide(color: Colors.white),
+                                      ),
+                                      contentPadding: EdgeInsets.zero,
+                                      errorStyle: TextStyle(color: Colors.white),
+                                      fillColor: Colors.transparent,
+                                      filled: true,
+                                      hintText: "Enter Your Name",
+                                      hintStyle: const TextStyle(
+                                        color: Colors.white38,
+                                      ),
+                                  ),
+
+                                ),
+
+                                const SizedBox(height: 25,),
+
+                                Align(
+                                  alignment: Alignment.topLeft,
+                                  child: Text(
+                                    "Your e-mail",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                ),
+                                TextFormField(
+                                  cursorColor: Colors.white,
+                                  style: TextStyle(color: Colors.white),
+                                  keyboardType: TextInputType.emailAddress,
+                                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                                  validator: (value){
+                                      if(value!.isEmpty){
+                                        return "This field is required";
+                                      } else if(!RegExp(r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$').hasMatch(value!)){
+                                        return "Enter a valid E-mail";
+                                      }else{
+                                        return null;
+                                      }
+                                    },
+                                  decoration: InputDecoration(
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(color: Colors.white38),
+                                    ),
+                                    focusedBorder: const UnderlineInputBorder(
+                                      borderSide: BorderSide(color: Colors.white),
+                                    ),
+                                    contentPadding: EdgeInsets.zero,
+                                    errorStyle: TextStyle(color: Colors.white),
+                                    fillColor: Colors.transparent,
+                                    filled: true,
+                                    hintText: "Enter Your email",
+                                    hintStyle: const TextStyle(
+                                      color: Colors.white38,
+                                    ),
+                                  ),
+                                ),
+
+                                const SizedBox(height: 25,),
+
+                                Align(
+                                  alignment: Alignment.topLeft,
+                                  child: Text(
+                                    "Your Phone Number",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                ),
+                                IntlPhoneField(
+                                  dropdownTextStyle: TextStyle(color: Colors.white),
+                                  textAlignVertical: TextAlignVertical(y: 0),
+                                  cursorColor: Colors.white,
+                                  style: TextStyle(color: Colors.white),
+                                  keyboardType: TextInputType.phone,
+                                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                                  pickerDialogStyle: PickerDialogStyle(
+                                      backgroundColor: Colors.white12,
+                                      countryCodeStyle: TextStyle(
+                                        color: Colors.white,
+                                      ),
+                                      countryNameStyle: TextStyle(
+                                        color: Colors.white,
+                                      ),
+                                      searchFieldCursorColor: Colors.white,
+                                      searchFieldInputDecoration: InputDecoration(
+                                        suffixIcon: Icon(Icons.search, color: Colors.white,),
+                                        hintText: "Search Countries",
+                                        hintStyle: TextStyle(
+                                          color: Colors.white30,
+                                        ),
+                                        focusColor: Colors.white,
+                                      )
+                                  ),
+                                  showCountryFlag: false,
+                                  initialCountryCode: 'IN',
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.digitsOnly,
+                                    LengthLimitingTextInputFormatter(10),
+                                  ],
+                                  decoration: InputDecoration(
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(color: Colors.white38),
+                                    ),
+                                    focusedBorder: const UnderlineInputBorder(
+                                      borderSide: BorderSide(color: Colors.white),
+                                    ),
+                                    contentPadding: EdgeInsets.zero,
+                                    errorStyle: TextStyle(color: Colors.white),
+                                    fillColor: Colors.transparent,
+                                    filled: true,
+                                    hintText: "Enter Your number",
+                                    hintStyle: const TextStyle(
+                                      color: Colors.white38,
+                                    ),
+                                  ),
+                                ),
+
+                                const SizedBox(height: 25,),
+
+                                Align(
+                                  alignment: Alignment.topLeft,
+                                  child: Text(
+                                    "Pick a Date",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                ),
+
+                                DOBInputField(
+                                  inputDecoration: InputDecoration(
+                                      hintStyle: TextStyle(
+                                        color: Colors.white30
+                                      ),
+                                      filled: false
+                                  ),
+                                  cursorColor: Colors.white,
+                                  style: TextStyle(color: Colors.white),
+                                  firstDate: DateTime.now(),
+                                  lastDate: DateTime(2024),
+                                  showLabel: true,
+                                  dateFormatType: DateFormatType.DDMMYYYY,
+                                  autovalidateMode: AutovalidateMode.always,
+                                ),
+                                //
+                                // Align(
+                                //   alignment: Alignment.topLeft,
+                                //   child: Text(
+                                //     "Pick a Number",
+                                //     style: TextStyle(
+                                //       color: Colors.white,
+                                //       fontWeight: FontWeight.bold,
+                                //       fontSize: 15,
+                                //     ),
+                                //   ),
+                                // ),
+
+                                const SizedBox(height: 15,),
+
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Container(
+                                      padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+                                      decoration: BoxDecoration(
+                                        color: Colors.transparent,
+                                        // gradient: AppColors.logoGradient,
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      child: TextButton(
+                                        onPressed: () => Navigator.pop(context, 'Cancel'),
+                                        child: Text(
+                                          'Cancel',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+
+                                    Container(
+                                      padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+                                      decoration: BoxDecoration(
+                                        color: Colors.black,
+                                        // gradient: AppColors.logoGradient,
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      child: TextButton(
+                                        onPressed: () => Navigator.pop(context, 'Cancel'),
+                                        child: Text(
+                                          'Submit',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+
+                              ],
+
+                            ),
+                          ),
+                          actions: [
+
+
+                          ],
+                        )
+                    ),
+                    child: Container(
+                      width: Screen.isPortrait(context)
+                          ? MediaQuery.of(context).size.width / 2.1
+                          : MediaQuery.of(context).size.width / 4.7,
+                      // height: 100,
+                      child: Card(
+                        color: AppColors.newBlueTheme,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: Container(
+                          padding: EdgeInsets.symmetric(vertical: 15),
+                          child: const Center(
+                            child: Text(
+                              "SCHEDULE A VISIT",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w900,
+                              ),
                             ),
                           ),
                         ),
                       ),
                     ),
                   ),
+
+                  // Reserve Now button
                   Container(
                     width: Screen.isPortrait(context)
                         ? MediaQuery.of(context).size.width / 2.5

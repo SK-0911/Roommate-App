@@ -1,9 +1,12 @@
 import 'package:ServiceBox/Screens/about.dart';
 import 'package:ServiceBox/Screens/cab.dart';
 import 'package:ServiceBox/Screens/chooseCab.dart';
+import 'package:ServiceBox/Screens/editProfile.dart';
 import 'package:ServiceBox/Screens/myBooking.dart';
+import 'package:ServiceBox/Screens/referEarn.dart';
 import 'package:ServiceBox/Screens/rental.dart';
 import 'package:ServiceBox/Screens/scheduleCab.dart';
+import 'package:ServiceBox/Screens/settings.dart';
 import 'package:ServiceBox/splash.dart';
 import 'package:flutter/material.dart';
 
@@ -33,11 +36,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Service Box',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Cab(),
+      home: Login(),
       debugShowCheckedModeBanner: false,
     );
   }

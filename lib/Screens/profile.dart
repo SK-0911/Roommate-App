@@ -18,7 +18,7 @@ class _ProfileState extends State<Profile> {
 
     return Scaffold(
       // bottomSheet: BottomSheet(builder: (context) => ,),
-      backgroundColor: AppColors.darkBlueTheme,
+      backgroundColor: AppColors.newBlueTheme,
       body: LandscapeView(
         middleRatio: 2,
         middleWidget: ListView(
@@ -71,6 +71,17 @@ class _ProfileState extends State<Profile> {
                 child:   Column(
                   children: [
                     SizedBox(height: MediaQuery.of(context).size.height*0.1,),
+                    // Name
+                    Text(
+                        "Mayank Sharma",
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
+                    ),
+
+                    // e-mail/phone number
                     Text(
                       "+91 1234 | abc@gmail.com",
                       style: TextStyle(
@@ -78,6 +89,18 @@ class _ProfileState extends State<Profile> {
                         fontSize: 15,
                       ),
                     ),
+
+                    const SizedBox(height: 10),
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.cake),
+                        Text(" 09/11/2002")
+                      ],
+                    ),
+
+
                     //card view
                     Padding(
                       padding: EdgeInsets.all(10),
@@ -86,11 +109,14 @@ class _ProfileState extends State<Profile> {
                           Navigator.push(context, MaterialPageRoute(builder: (_)=>Wallet()));
                         },
                         child: Card(
-
                           child: Container(
                             height: MediaQuery.of(context).size.height*0.2,
                             width: MediaQuery.of(context).size.width,
                             padding: EdgeInsets.symmetric(vertical: 40, horizontal: 30),
+                            decoration: BoxDecoration(
+                              gradient: AppColors.logoGradient,
+                              borderRadius: BorderRadius.all(Radius.circular(20)),
+                            ),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -114,7 +140,7 @@ class _ProfileState extends State<Profile> {
                               ],
                             ),
                           ),
-                          color: AppColors.darkBlueTheme,
+                          // color: AppColors.darkBlueTheme,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20),
                           ),
