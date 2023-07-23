@@ -99,6 +99,7 @@ class SignUp extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 35.0),
                             child: IntlPhoneField(
+                                dropdownTextStyle: TextStyle(color: Colors.white),
                                 style: TextStyle(color: Colors.white),
                                 pickerDialogStyle: PickerDialogStyle(
                                     backgroundColor: Colors.white12,
@@ -196,7 +197,7 @@ class SignUp extends StatelessWidget {
 
                           const SizedBox(height: 30),
 
-                          // Log In Button
+                          // Sign Up Button
                           GestureDetector(
                             onTap: () => Navigator.pushReplacement(
                               context,

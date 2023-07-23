@@ -69,7 +69,8 @@ class _WalletState extends State<Wallet> {
                   width: MediaQuery.of(context).size.width,
                   margin: EdgeInsets.symmetric(horizontal: 25),
                   decoration: BoxDecoration(
-                    color: AppColors.darkBlueTheme,
+                    color: AppColors.newBlueTheme,
+                    // gradient: AppColors.logoGradient,
                     borderRadius: BorderRadius.circular(20),
                   ),
                   padding: EdgeInsets.only(top: 20, bottom: 20, left: 30, right: 0),
@@ -240,9 +241,10 @@ class _WalletState extends State<Wallet> {
 
             const SizedBox(height: 20),
 
+            // My cards
             Container(
               padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-              color: AppColors.darkBlueTheme,
+              color: AppColors.newBlueTheme,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -254,7 +256,7 @@ class _WalletState extends State<Wallet> {
                     ),
                   ),
 
-                  Image.asset(addCard, fit: BoxFit.cover, height: 30,),
+                  Image.asset(addCard, fit: BoxFit.cover, height: 25,),
                 ],
               ),
             ),
@@ -672,7 +674,7 @@ class _WalletState extends State<Wallet> {
 
             Container(
               padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-              color: AppColors.darkBlueTheme,
+              color: AppColors.newBlueTheme,
               child: Text(
                   "Redeem Exclusive Offers >",
                   style: TextStyle(
@@ -713,7 +715,8 @@ class _WalletState extends State<Wallet> {
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: AppColors.darkBlueTheme,
+        // color: AppColors.newBlueTheme,
+        gradient: AppColors.logoGradient,
       ),
       child: Column(
         children:  [

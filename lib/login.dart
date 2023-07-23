@@ -56,8 +56,9 @@ class Login extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 35.0),
                   child: IntlPhoneField(
+                      dropdownTextStyle: TextStyle(color: Colors.white),
                       pickerDialogStyle: PickerDialogStyle(
-                        backgroundColor: Colors.white12,
+                        backgroundColor: Colors.white,
                         countryCodeStyle: TextStyle(
                           color: Colors.white,
                         ),

@@ -20,15 +20,22 @@ class _FlatListingState extends State<FlatListing> {
 
     return Scaffold(
       appBar: AppBar(
+        flexibleSpace: FlexibleSpaceBar(
+          background: Container(
+            decoration: BoxDecoration(
+              gradient: AppColors.logoGradient,
+            ),
+          ),
+        ),
         leading: InkWell(
             onTap: (){
               Navigator.pop(context);
             },
-            child: Icon(Icons.arrow_back_ios,color: Colors.black)),
+            child: Icon(Icons.arrow_back_ios,color: Colors.white)),
         // foregroundColor: Colors.white,
         backgroundColor: Colors.white,
         centerTitle: true,
-        title:Text("Flats",style: TextStyle(color: Colors.black)),
+        title:Text("Flats",style: TextStyle(color: Colors.white)),
       ),
       body: LandscapeView(
         middleRatio: 2,
@@ -168,7 +175,7 @@ class _FlatListingState extends State<FlatListing> {
                       : MediaQuery.of(context).size.width / 4.7,
                   // height: 100,
                   child: Card(
-                    color: AppColors.lightBlueTheme,
+                    color: AppColors.newBlueTheme,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(5),
                     ),
@@ -193,7 +200,7 @@ class _FlatListingState extends State<FlatListing> {
                       : MediaQuery.of(context).size.width / 4,
                   // height: 100,
                   child: Card(
-                    color: AppColors.darkBlueTheme,
+                    color: Colors.black,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(5),
                     ),

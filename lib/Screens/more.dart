@@ -1,4 +1,10 @@
 import 'package:ServiceBox/Screens/about.dart';
+import 'package:ServiceBox/Screens/myBooking.dart';
+import 'package:ServiceBox/Screens/offers.dart';
+import 'package:ServiceBox/Screens/referEarn.dart';
+import 'package:ServiceBox/Screens/referral.dart';
+import 'package:ServiceBox/Screens/settings.dart';
+import 'package:ServiceBox/Screens/wallet.dart';
 import 'package:ServiceBox/const/CustomColors.dart';
 import 'package:flutter/material.dart';
 import 'package:chewie/chewie.dart';
@@ -41,27 +47,42 @@ class _MoreState extends State<More> {
       body: ListView(
         children: [
           // My Trips
-          ListTile(
-            tileColor: Colors.white,
-            leading: Icon(Icons.luggage),
-            title: Text(moreMenu[0]),
-            subtitle: Text("Lorem ipsum"),
-        ),
+          InkWell(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (_)=>MyBooking()));
+            },
+            child: ListTile(
+              tileColor: Colors.white,
+              leading: Icon(Icons.luggage),
+              title: Text(moreMenu[0]),
+              subtitle: Text("Lorem ipsum"),
+            ),
+          ),
 
           // My coupon
-          ListTile(
-            tileColor: Colors.white,
-            leading: Icon(Icons.discount),
-            title: Text(moreMenu[1]),
-            subtitle: Text("Lorem ipsum"),
+          InkWell(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (_)=>Offers()));
+            },
+            child: ListTile(
+              tileColor: Colors.white,
+              leading: Icon(Icons.discount),
+              title: Text(moreMenu[1]),
+              subtitle: Text("Lorem ipsum"),
+            ),
           ),
 
           // My Saved cards
-          ListTile(
-            tileColor: Colors.white,
-            leading: Icon(Icons.credit_card_sharp),
-            title: Text(moreMenu[2]),
-            subtitle: Text("Lorem ipsum"),
+          InkWell(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (_)=>Wallet()));
+            },
+            child: ListTile(
+              tileColor: Colors.white,
+              leading: Icon(Icons.credit_card_sharp),
+              title: Text(moreMenu[2]),
+              subtitle: Text("Lorem ipsum"),
+            ),
           ),
 
           // My UPI
@@ -81,51 +102,66 @@ class _MoreState extends State<More> {
           ),
 
           // Setting
-          ListTile(
-            tileColor: Colors.white,
-            leading: Icon(Icons.settings),
-            title: Text(moreMenu[5]),
-            subtitle: Text("Lorem ipsum"),
-          ),
-
-          // Refer and Earn
-          ListTile(
-            tileColor: Colors.white,
-            leading: Icon(Icons.share),
-            title: Text(moreMenu[6]),
-            subtitle: Text("Lorem ipsum"),
-          ),
-
-          // Refer a accommodation
-          ListTile(
-            tileColor: Colors.white,
-            leading: Icon(Icons.door_back_door_outlined),
-            title: Text(moreMenu[7]),
-            subtitle: Text("Lorem ipsum"),
-          ),
-
-          // About Us
           InkWell(
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_)=>About()));
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (_)=>Settings()));
             },
             child: ListTile(
               tileColor: Colors.white,
-              leading: Icon(Icons.info),
-              title: Text(moreMenu[8]),
+              leading: Icon(Icons.settings),
+              title: Text(moreMenu[5]),
               subtitle: Text("Lorem ipsum"),
             ),
           ),
+
+          // Refer and Earn
+          InkWell(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (_)=>ReferEarn()));
+            },
+            child: ListTile(
+              tileColor: Colors.white,
+              leading: Icon(Icons.share),
+              title: Text(moreMenu[6]),
+              subtitle: Text("Lorem ipsum"),
+            ),
+          ),
+
+          // Refer a accommodation
+          InkWell(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (_)=>Referral()));
+            },
+            child: ListTile(
+              tileColor: Colors.white,
+              leading: Icon(Icons.door_back_door_outlined),
+              title: Text(moreMenu[7]),
+              subtitle: Text("Lorem ipsum"),
+            ),
+          ),
+
+          // About Us
+          // InkWell(
+          //   onTap: () {
+          //     Navigator.push(context, MaterialPageRoute(builder: (_)=>About()));
+          //   },
+          //   child: ListTile(
+          //     tileColor: Colors.white,
+          //     leading: Icon(Icons.info),
+          //     title: Text(moreMenu[8]),
+          //     subtitle: Text("Lorem ipsum"),
+          //   ),
+          // ),
           
           const SizedBox(height: 10),
-          Center(
-            child: Text(
-              "Copyright © 2023 Shubham Kumar",
-              style: TextStyle(
-                color: Colors.grey[600]
-              ),
-            ),
-          )
+          // Center(
+          //   child: Text(
+          //     "Copyright © 2023 Shubham Kumar",
+          //     style: TextStyle(
+          //       color: Colors.grey[600]
+          //     ),
+          //   ),
+          // )
         ],
       ),
     );

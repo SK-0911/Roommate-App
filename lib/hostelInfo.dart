@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:ServiceBox/const/CustomColors.dart';
 import 'package:ServiceBox/utils/landscape_main.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:slide_to_act/slide_to_act.dart';
 
 import 'const/imagename.dart';
 
@@ -18,7 +19,14 @@ class _HostelInfoState extends State<HostelInfo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppColors.darkBlueTheme,
+        // backgroundColor: AppColors.darkBlueTheme,
+        flexibleSpace: FlexibleSpaceBar(
+          background: Container(
+            decoration: BoxDecoration(
+              gradient: AppColors.logoGradient,
+            ),
+          ),
+        ),
         leading: IconButton(
           onPressed: () => Navigator.of(context).pop(),
           icon: Icon(
@@ -142,7 +150,7 @@ class _HostelInfoState extends State<HostelInfo> {
             ),
 
 
-            // Festures title
+            // Features title
             Container(
               padding: EdgeInsets.symmetric(horizontal: 10),
               child: Text(
@@ -170,7 +178,7 @@ class _HostelInfoState extends State<HostelInfo> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 caspule("Contact No",Icons.call,AppColors.pinkcard),
-                caspule("AC Rooms",Icons.ac_unit,AppColors.home2st)
+                caspule("AC Rooms",Icons.ac_unit,AppColors.home2st),
               ],
             ),
 
@@ -460,7 +468,97 @@ class _HostelInfoState extends State<HostelInfo> {
                   ),
                 ],
               ),
-            )
+            ),
+
+            const SizedBox(height: 15),
+
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SlideAction(
+                    onSubmit: () => showDialog(
+                        context: context,
+                        builder: (BuildContext context) => AlertDialog(
+                          title: Center(
+                            child: Text(
+                              'Booking Confirmed!',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 25,
+                              ),
+                            ),
+                          ),
+                          content: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Container(
+                                padding: EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: AppColors.lightGreenTheme,
+                                ),
+                                child: Icon(
+                                  Icons.check,
+                                  color: Colors.white,
+                                ),
+                              ),
+
+                            ],
+                          ),
+                          actions: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+                                  decoration: BoxDecoration(
+                                    gradient: AppColors.logoGradient,
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: TextButton(
+                                    onPressed: () => Navigator.pop(context, 'Cancel'),
+                                    child: Text(
+                                      'Okay',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            )
+                          ],
+                        )
+                    ),
+                    outerColor: AppColors.newBlueTheme,
+                    sliderRotate: false,
+                    elevation: 4,
+                    height: 60,
+                    sliderButtonIconPadding: 10,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        gradient: AppColors.logoGradient,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Slide to Book",
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),

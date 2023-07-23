@@ -233,8 +233,6 @@ class _ChoosecabState extends State<Choosecab> {
             ),
           ),
 
-
-
         ],
       ),
 

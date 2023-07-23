@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
                           },
                           child: Container(
                             decoration: BoxDecoration(
-                              color: AppColors.darkBlueTheme,
+                              color: AppColors.newBlueTheme,
                               borderRadius: BorderRadius.circular(30),
                             ),
                             child: Container(
@@ -88,7 +88,7 @@ class _HomePageState extends State<HomePage> {
                             Icon(
                               Icons.notifications,
                               size: 30,
-                              color: AppColors.darkBlueTheme,
+                              color: AppColors.newBlueTheme,
                             ),
                             SizedBox(width: 10),
                             InkWell(
@@ -98,7 +98,7 @@ class _HomePageState extends State<HomePage> {
                               child: Icon(
                                 Icons.wallet,
                                 size: 30,
-                                color: AppColors.darkBlueTheme,
+                                color: AppColors.newBlueTheme,
                               ),
                             ),
                           ],
@@ -125,7 +125,7 @@ class _HomePageState extends State<HomePage> {
                                 fontSize:  45,
                                 fontWeight:  FontWeight.w600,
                                 // height:  150,
-                                color:  Color(0xff000000),
+                                color:  Colors.black,
                               ),
                             ),
                             TextSpan(
@@ -135,7 +135,7 @@ class _HomePageState extends State<HomePage> {
                                 fontSize:  45,
                                 fontWeight:  FontWeight.w600,
                                 // height:  150,
-                                color:  AppColors.lightBlueTheme,
+                                color:  AppColors.newBlueTheme,
                               ),
                             ),
 
@@ -149,7 +149,7 @@ class _HomePageState extends State<HomePage> {
                       child: Text(
                         "To Kaha Chalein?",
                         style: TextStyle(
-                          color: AppColors.darkBlueTheme,
+                          color: Colors.black,
                           fontSize: 18,
                           fontWeight: FontWeight.w600,
                           letterSpacing: 1,
@@ -162,9 +162,13 @@ class _HomePageState extends State<HomePage> {
                     Column(
                       children: [
                         // Search
-                        Padding(
+                        Container(
                           padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width/15,),
                           child: TextField(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (_)=>Search()));
+                            },
+                            readOnly: true,
                             decoration: InputDecoration(
                               isDense: true,
                               contentPadding: EdgeInsets.symmetric(vertical: 0),
@@ -178,8 +182,7 @@ class _HomePageState extends State<HomePage> {
                               hintStyle: TextStyle(
                                 color: AppColors.darkBlueTheme,
                               ),
-                              prefixIcon: Icon(Icons.search),
-                              prefixIconColor: Colors.white,
+                              prefixIcon: Icon(Icons.search, color: Colors.black38,),
                             ),
                           ),
                         ),
@@ -262,7 +265,7 @@ class _HomePageState extends State<HomePage> {
 
                               child: InkWell(
                                 onTap: (){
-                                  Navigator.push(context, MaterialPageRoute(builder: (_)=>Cab()));
+                                  Navigator.push(context, MaterialPageRoute(builder: (_)=>ComingSoon()));
                                 },
                                 child: Stack(
                                   children: [
