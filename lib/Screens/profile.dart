@@ -1,3 +1,4 @@
+import 'package:ServiceBox/Screens/editProfile.dart';
 import 'package:ServiceBox/Screens/sample.dart';
 import 'package:flutter/material.dart';
 import 'package:ServiceBox/Screens/wallet.dart';
@@ -50,9 +51,14 @@ class _ProfileState extends State<Profile> {
                       ],
                     ),
 
-                    Icon(
-                        Icons.edit,
-                        color: Colors.white,
+                    InkWell(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (_)=>EditProfile()));
+                      },
+                      child: Icon(
+                          Icons.edit,
+                          color: Colors.white,
+                      ),
                     )
                   ],
                 ),
@@ -167,10 +173,84 @@ class _ProfileState extends State<Profile> {
                     const SizedBox(height: 15),
 
                     //tiles for navigation
-                    tile("My Account", Icons.person, Color(0xff851C1C) ,Color(0xffFAECEC)),
+
+                    // My Account
+                    InkWell(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (_)=>EditProfile()));
+                    },
+                    child: Container(
+                      height: MediaQuery.of(context).size.height*0.08,
+                      child: ListTile(
+                        leading: Container(
+                            padding: EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                                color: Color(0xffFAECEC),
+                                shape: BoxShape.circle
+                            ),
+                            child: Icon(Icons.person, color: Color(0xff851C1C),)
+                        ),
+                        title: Text(
+                          "My Account",
+                        ),
+                        trailing: Icon(Icons.arrow_forward_ios_outlined),
+                      ),
+                    ),
+                  ),
+
+                    // tile("My Account", Icons.person, Color(0xff851C1C) /*2*/,Color(0xffFAECEC)/*1*/),
                     tile("Addresses", Icons.location_on, Color(0xff169800) ,Color(0xffEEFAEC)),
-                    tile("Transaction History", Icons.history, Color(0xff1C4285) ,Color(0xffECEDFA)),
-                    tile("Payments", Icons.payment, Color(0xffCE6F00) ,Color(0xffFFF2E3)),
+
+                    // Transaction history
+                    InkWell(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (_)=>Wallet()));
+                      },
+                      child: Container(
+                        height: MediaQuery.of(context).size.height*0.08,
+                        child: ListTile(
+                          leading: Container(
+                              padding: EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                  color: Color(0xffECEDFA),
+                                  shape: BoxShape.circle
+                              ),
+                              child: Icon(Icons.history, color: Color(0xff1C4285),)
+                          ),
+                          title: Text(
+                            "Transaction History",
+                          ),
+                          trailing: Icon(Icons.arrow_forward_ios_outlined),
+                        ),
+                      ),
+                    ),
+
+                    // tile("Transaction History", Icons.history, Color(0xff1C4285) ,Color(0xffECEDFA)),
+
+                    // Payments
+                    InkWell(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (_)=>Wallet()));
+                      },
+                      child: Container(
+                        height: MediaQuery.of(context).size.height*0.08,
+                        child: ListTile(
+                          leading: Container(
+                              padding: EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                  color: Color(0xffFFF2E3),
+                                  shape: BoxShape.circle
+                              ),
+                              child: Icon(Icons.payment, color: Color(0xffCE6F00),)
+                          ),
+                          title: Text(
+                            "Payments",
+                          ),
+                          trailing: Icon(Icons.arrow_forward_ios_outlined),
+                        ),
+                      ),
+                    ),
+                    // tile("Payments", Icons.payment, Color(0xffCE6F00) ,Color(0xffFFF2E3)),
                     tile("Help & FAQ", Icons.help, Color(0xff97A700) ,Color(0xffFCFFDF))
                   ],
                 ),
@@ -182,23 +262,25 @@ class _ProfileState extends State<Profile> {
     );
   }
   tile(String name, IconData tileIcon, Color iconColor, Color iconContainer){
-   return Container(
-     height: MediaQuery.of(context).size.height*0.08,
-     child: ListTile(
-
-        leading: Container(
-            padding: EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              color: iconContainer,
-              shape: BoxShape.circle
-            ),
-            child: Icon(tileIcon, color: iconColor,)
+   return InkWell(
+     onTap: (){},
+     child: Container(
+       height: MediaQuery.of(context).size.height*0.08,
+       child: ListTile(
+          leading: Container(
+              padding: EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: iconContainer,
+                shape: BoxShape.circle
+              ),
+              child: Icon(tileIcon, color: iconColor,)
+          ),
+          title: Text(
+            name,
+          ),
+          trailing: Icon(Icons.arrow_forward_ios_outlined),
         ),
-        title: Text(
-          name,
-        ),
-        trailing: Icon(Icons.arrow_forward_ios_outlined),
-      ),
+     ),
    );
   }
 }

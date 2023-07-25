@@ -368,7 +368,7 @@ class _ListingState extends State<Listing> {
                                   lastDate: DateTime(2024),
                                   showLabel: true,
                                   dateFormatType: DateFormatType.DDMMYYYY,
-                                  autovalidateMode: AutovalidateMode.always,
+                                  autovalidateMode: AutovalidateMode.onUserInteraction,
                                 ),
                                 //
                                 // Align(
@@ -432,10 +432,7 @@ class _ListingState extends State<Listing> {
 
                             ),
                           ),
-                          actions: [
 
-
-                          ],
                         )
                     ),
                     child: Container(

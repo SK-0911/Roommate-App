@@ -200,7 +200,8 @@ class _EditProfileState extends State<EditProfile> {
               lastDate: DateTime.now(),
               showLabel: true,
               dateFormatType: DateFormatType.DDMMYYYY,
-              autovalidateMode: AutovalidateMode.always,
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              errorFormatText: "Invalid DOB",
             ),
 
             const SizedBox(height: 20,),

@@ -53,7 +53,6 @@ class _MoreState extends State<More> {
               tileColor: Colors.white,
               leading: Icon(Icons.luggage),
               title: Text(moreMenu[0]),
-              subtitle: Text("Lorem ipsum"),
             ),
           ),
 
@@ -66,7 +65,6 @@ class _MoreState extends State<More> {
               tileColor: Colors.white,
               leading: Icon(Icons.discount),
               title: Text(moreMenu[1]),
-              subtitle: Text("Lorem ipsum"),
             ),
           ),
 
@@ -79,7 +77,6 @@ class _MoreState extends State<More> {
               tileColor: Colors.white,
               leading: Icon(Icons.credit_card_sharp),
               title: Text(moreMenu[2]),
-              subtitle: Text("Lorem ipsum"),
             ),
           ),
 
@@ -88,7 +85,6 @@ class _MoreState extends State<More> {
             tileColor: Colors.white,
             leading: Icon(Icons.discount),
             title: Text(moreMenu[3]),
-            subtitle: Text("Lorem ipsum"),
           ),
 
           // Customer Support
@@ -96,7 +92,6 @@ class _MoreState extends State<More> {
             tileColor: Colors.white,
             leading: Icon(Icons.help),
             title: Text(moreMenu[4]),
-            subtitle: Text("Lorem ipsum"),
           ),
 
           // Setting
@@ -108,7 +103,6 @@ class _MoreState extends State<More> {
               tileColor: Colors.white,
               leading: Icon(Icons.settings),
               title: Text(moreMenu[5]),
-              subtitle: Text("Lorem ipsum"),
             ),
           ),
 
@@ -121,7 +115,6 @@ class _MoreState extends State<More> {
               tileColor: Colors.white,
               leading: Icon(Icons.share),
               title: Text(moreMenu[6]),
-              subtitle: Text("Lorem ipsum"),
             ),
           ),
 
@@ -134,7 +127,6 @@ class _MoreState extends State<More> {
               tileColor: Colors.white,
               leading: Icon(Icons.door_back_door_outlined),
               title: Text(moreMenu[7]),
-              subtitle: Text("Lorem ipsum"),
             ),
           ),
 
